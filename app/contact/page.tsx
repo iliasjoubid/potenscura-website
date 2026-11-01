@@ -5,7 +5,7 @@ import { PaginaKop } from '@/components/Blokken';
 import { KopFoto } from '@/components/Beelden';
 import { Pijl, Voorbeeld } from '@/components/Iconen';
 import { CONTACT } from '@/lib/beeld';
-import { paginas, partijen, plaats } from '@/lib/gegevens';
+import { aanmelden, paginas, plaats } from '@/lib/gegevens';
 import { email, telefoon } from '@/lib/site';
 import { meta } from '@/lib/meta';
 import { kruimelsLd } from '@/lib/structured';
@@ -31,13 +31,22 @@ export default function Contact() {
       </PaginaKop>
 
       <section className="band band--vlak" id="bericht" aria-labelledby="bericht-kop">
-        <div className="raster bericht">
-          <div className="bericht__formulier">
+        <div className="raster twee twee--breed">
+          <div className="twee__links">
+            <h2 className="kop-klein">Een jongere aanmelden</h2>
+            <p className="contact__tekst">{aanmelden.geenFormulier} Bel of mail ons; stukken met persoonsgegevens stuur je via beveiligde mail.</p>
+            <ul className="contact__links">
+              <li><Link className="pijl-link" href="/verwijzers">De aanmeldkaart <Pijl /></Link></li>
+              <li><Link className="pijl-link" href="/werken-bij#solliciteren">Solliciteren <Pijl /></Link></li>
+              <li><Link className="pijl-link" href="/klachten">Een klacht indienen <Pijl /></Link></li>
+            </ul>
+          </div>
+          <div className="twee__rechts">
             <h2 className="kop-klein formulier__kop" id="bericht-kop">Stuur een bericht</h2>
             <Formulier
               id="bericht-formulier"
               knop="Verstuur je bericht"
-              letOp="Zet geen gegevens over de gezondheid of de situatie van een jongere in dit formulier. Wil je een jongere aanmelden, bel of mail ons dan, en stuur stukken via beveiligde mail."
+              letOp="Zet geen gegevens over de gezondheid of de situatie van een jongere in dit formulier. Een aanmelding gaat per telefoon of beveiligde mail."
               velden={[
                 { naam: 'naam', label: 'Je naam', verplicht: true, autocomplete: 'name' },
                 { naam: 'email', label: 'Je e-mailadres', soort: 'email', verplicht: true, autocomplete: 'email' },
@@ -46,15 +55,6 @@ export default function Contact() {
               ]}
             />
           </div>
-          <nav className="bericht__wegen" aria-labelledby="wegen-kop">
-            <h2 className="kop-klein" id="wegen-kop">Waar je ook terechtkunt</h2>
-            <ul>
-              <li><Link href="/verwijzers"><strong>Een jongere aanmelden</strong><span>De route en de aanmeldkaart, ook als pdf.</span><Pijl /></Link></li>
-              <li><Link href="/werken-bij#solliciteren"><strong>Solliciteren</strong><span>Wat je doet als begeleider, en het formulier.</span><Pijl /></Link></li>
-              <li><Link href="/klachten"><strong>Een klacht indienen</strong><span>Gratis, via {partijen.klachten.naam}.</span><Pijl /></Link></li>
-              <li><Link href="/vragen"><strong>Vragen</strong><span>Voor jongeren, ouders en verwijzers.</span><Pijl /></Link></li>
-            </ul>
-          </nav>
         </div>
       </section>
 

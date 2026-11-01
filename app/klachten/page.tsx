@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import JsonLd from '@/components/JsonLd';
-import { PaginaKop, Slot } from '@/components/Blokken';
+import { PaginaKop } from '@/components/Blokken';
 import { KopFoto } from '@/components/Beelden';
 import { KLACHTEN } from '@/lib/beeld';
 import { paginas } from '@/lib/gegevens';
@@ -21,10 +21,6 @@ export default function Klachten() {
               <h2 id="klacht-ons">Zeg het tegen ons</h2>
               <p>Vertel het je begeleider, of neem <Link href="/contact">contact</Link> op met Potens Cura. Dat kan ook als ouder of als verwijzer.</p>
             </section>
-            <section className="vakken__vak vakken__vak--tekst" aria-labelledby="klacht-privacy">
-              <h2 id="klacht-privacy">Een klacht over privacy</h2>
-              <p>Ben je het niet eens met hoe Potens Cura met je gegevens omgaat? Dan kun je een klacht indienen bij de <a href="https://autoriteitpersoonsgegevens.nl">Autoriteit Persoonsgegevens</a>.</p>
-            </section>
             <section className="vakken__vak vakken__vak--tekst" aria-labelledby="klacht-kpz">
               <h2 id="klacht-kpz">Klachtenportaal Zorg</h2>
               <p>Komen we er samen niet uit, of bespreek je het liever niet met ons? Potens Cura is aangesloten bij Klachtenportaal Zorg. Daar zoekt een onafhankelijke klachtenfunctionaris met jou en met ons naar een oplossing. Bij jeugdhulp kan een klacht ook naar de Klachtencommissie Jeugdzorg van Klachtenportaal Zorg. Een klacht indienen kost je niets.</p>
@@ -35,11 +31,14 @@ export default function Klachten() {
               <p>Wil je hulp van iemand die niet bij Potens Cura werkt? Een vertrouwenspersoon van Jeugdstem of Adviespunt Zorgbelang helpt je gratis en onafhankelijk, met advies of bij een klacht. Ze zijn er voor jongeren, ouders, pleegouders en verzorgers in de jeugdzorg.</p>
               <p>Bel <a href="tel:+31885551000">088 555 1000</a> op werkdagen, of kijk op <a href="https://jeugdstem.nl">jeugdstem.nl</a>.</p>
             </section>
+            <section className="vakken__vak vakken__vak--tekst" aria-labelledby="klacht-privacy">
+              <h2 id="klacht-privacy">Een klacht over privacy</h2>
+              <p>Ben je het niet eens met hoe Potens Cura met je gegevens omgaat? Dan kun je een klacht indienen bij de <a href="https://autoriteitpersoonsgegevens.nl">Autoriteit Persoonsgegevens</a>.</p>
+            </section>
           </div>
           <p className="bron vakken__onder">De gegevens van Klachtenportaal Zorg, Jeugdstem en Adviespunt Zorgbelang zijn gecontroleerd op 29 oktober 2026.</p>
         </div>
       </section>
-      <Slot />
       <JsonLd data={kruimelsLd('Klachten', p.pad)} />
     </>
   );

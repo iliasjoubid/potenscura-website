@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { concept, partijen } from '@/lib/gegevens';
+import { partijen } from '@/lib/gegevens';
 
 const paginas = [
   { pad: '/wonen', naam: 'Wonen' },
@@ -49,7 +49,7 @@ export default function Voet() {
             </dd>
           </div>
         </dl>
-        {concept && <p className="voet__concept">Concept voor een nieuwe website van Potens Cura. Dit is niet de officiële site en verzamelt geen gegevens.</p>}
+        <div className="voet__contact"><a href="tel:+31643534242">06 43 53 42 42</a><a href="mailto:info@potenscura.nl">info@potenscura.nl</a><span>Arnhem</span></div>
       </div>
     </footer>
   );

@@ -1,5 +1,5 @@
-import { aanmelden, bijgewerkt, dagbesteding, doelgroep, plaats, methodieken, financiering, begeleiding } from '@/lib/gegevens';
-import { datum, email, hoofdletter, opsomming, telefoon } from '@/lib/site';
+import { aanmelden, bijgewerkt, dagbesteding, doelgroep, plaats, financiering, begeleiding } from '@/lib/gegevens';
+import { datum, email, hoofdletter, telefoon } from '@/lib/site';
 import { Voorbeeld } from './Iconen';
 import PrintKnop from './PrintKnop';
 
@@ -9,18 +9,19 @@ export const kaartRijen: [string, string][] = [
   ['Wonen', 'Vier studio\'s met eigen keuken, (semi)zelfstandig en niet in een groep. Badkamer en toiletten gedeeld.'],
   ['Begeleiding', `${hoofdletter(begeleiding.waarde)}.`],
   ['Werkwijze', 'Vertrouwensband, begeleiding op maat en een perspectiefplan met jongere en netwerk, op vaste momenten geëvalueerd.'],
-  ['Methodieken', `${hoofdletter(opsomming(methodieken.namen.map((m) => m.replace(' werken', ''))))}.`],
+  ['Methodieken', 'Presentiebenadering, systeemgericht en cultuursensitief.'],
   ['Financiering', financiering.kort],
   ['Regio', plaats.waarde!],
   ['Plek', aanmelden.beschikbaarheid],
-  ['Aanmelden', 'Bellen of mailen, stukken via beveiligde mail, dan een intakegesprek.'],
+  ['Aanmelden', 'Bellen of mailen, veilige gegevensuitwisseling afstemmen en een intakegesprek.'],
 ];
 
 export default function Aanmeldkaart({ groot = false }: { groot?: boolean }) {
   const klein: [string, React.ReactNode][] = [
-    ['Financiering', 'Jeugdwet of Wmo'],
+    ['Financiering', financiering.kort],
     ['Voorwaarde', dagbesteding.kort],
     ['Plek', aanmelden.beschikbaarheid.replace(/\.$/, '')],
+    ['Aanmelden', 'Bellen of mailen, dan een intakegesprek'],
   ];
   const contact: [string, React.ReactNode] = ['Contact', (
     <>

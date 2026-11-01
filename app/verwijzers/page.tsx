@@ -1,44 +1,55 @@
 import Link from 'next/link';
 import Aanmeldkaart from '@/components/Aanmeldkaart';
 import JsonLd from '@/components/JsonLd';
-import { Stadhuis } from '@/components/Beelden';
-import { Pijl } from '@/components/Iconen';
-import { openbaar, paginas } from '@/lib/gegevens';
-import { datum } from '@/lib/site';
+import { PaginaKop, Slot } from '@/components/Blokken';
+import { KopFoto } from '@/components/Beelden';
+import { aanmelden, doelgroep, financiering, paginas } from '@/lib/gegevens';
 import { meta } from '@/lib/meta';
 import { kruimelsLd } from '@/lib/structured';
 
 export const metadata = meta('verwijzers');
 
+const stappen = [
+  { titel: 'Eerste contact', tekst: 'Neem telefonisch of per e-mail contact op. We bespreken kort de vraag en de situatie.' },
+  { titel: 'Informatie delen', tekst: 'Als aanvullende informatie nodig is, spreken we af hoe die veilig kan worden aangeleverd. Stuur geen cliëntgegevens via een gewoon contactformulier.' },
+  { titel: 'Kennismaking en intake', tekst: 'We bespreken samen met de jongere en betrokkenen of de woonplek, begeleiding en ondersteuningsvraag bij elkaar passen.' },
+  { titel: 'Vervolgafspraken', tekst: 'Als er een passende match is en de financiering is geregeld, maken we afspraken over het vervolg en een mogelijke start.' },
+];
+
 export default function Verwijzers() {
   const p = paginas.verwijzers;
-  const { tot23 } = openbaar;
   return (
     <>
-      <section className="route-kop" aria-labelledby="pagina-h1">
-        <div className="raster route-kop__binnen">
-          <h1 id="pagina-h1">{p.h1}</h1>
-          <p className="route-kop__zin">Bel of mail Potens Cura, en stuur stukken met persoonsgegevens via beveiligde mail. In een intakegesprek kijken we samen of het past. Past het, dan spreken we af wanneer de jongere komt wonen.</p>
-        </div>
-      </section>
-
-      <section className="band band--navy print-kaart" id="kaart" aria-label="De aanmeldkaart en tot 23 jaar">
-        <div className="raster kaart-rij">
-          <div className="kaart-rij__kaart">
-            <Aanmeldkaart groot />
+      <PaginaKop
+        h1={p.h1}
+        zin={`Informatie voor verwijzers en samenwerkingspartners over kleinschalig wonen in Arnhem voor ${doelgroep.tekst}.`}
+        naast={<div className="verwijzers-kaart"><Aanmeldkaart groot /></div>}
+      />
+      <section className="band band--vlak" aria-labelledby="aanmelden-route">
+        <div className="raster">
+          <div className="home-sectie-kop">
+            <p className="home-overline">Aanmelden</p>
+            <h2 id="aanmelden-route">Van eerste contact tot een passende plek.</h2>
+            <p>Een plaatsing begint met afstemmen. We kijken niet alleen naar beschikbaarheid, maar vooral of de woonvorm en begeleiding aansluiten bij de jongere.</p>
           </div>
-          <div className="kaart-rij__naast niet-printen">
-            <Stadhuis sizes="(min-width: 1100px) 520px, calc(100vw - 40px)" />
-            <div className="kaart-rij__tekst">
-              <h2 className="kop-klein">Tot 23 jaar</h2>
-              <p>{tot23.tekst}</p>
-              <p className="vakken__bron">Bron: <a href={tot23.link}>{tot23.bron}</a>, nagelezen op {datum(tot23.nagelezen)}.</p>
-              <Link className="pijl-link" href="/#route">De weg van een jongere bij ons <Pijl /></Link>
-            </div>
+          <div className="verwijzers-stappen">
+            {stappen.map((s, i) => <article key={s.titel}><span>0{i + 1}</span><div><h3>{s.titel}</h3><p>{s.tekst}</p></div></article>)}
           </div>
         </div>
       </section>
-
+      <section className="band band--navy" aria-labelledby="verwijzers-doelgroep">
+        <div className="raster verwijzers-info">
+          <div><p className="home-overline home-overline--licht">Doelgroep</p><h2 id="verwijzers-doelgroep">Voor wie is Potens Cura?</h2><p>Jongeren van {doelgroep.leeftijdVan} tot {doelgroep.leeftijdTot} jaar die niet thuis kunnen wonen, met psychische, sociale of verstandelijke problematiek. De woonvorm is bedoeld voor jongeren die toe zijn aan (semi)zelfstandig wonen in een eigen studio.</p></div>
+          <div><p className="home-overline home-overline--licht">Financiering</p><h2>Afstemming per jongere</h2><p>{financiering.antwoord} {financiering.gemeente}</p><p>{aanmelden.beschikbaarheid}</p></div>
+        </div>
+      </section>
+      <section className="band band--vlak">
+        <div className="raster verwijzers-contact">
+          <div><h2>Overleggen of aanmelden?</h2><p>Bel of mail ons. We denken graag mee over de vraag en de mogelijkheden.</p></div>
+          <div><a className="knop" href="tel:+31643534242">Bel 06 43 53 42 42</a><Link className="knop knop--rand" href="/contact">Contactgegevens</Link></div>
+        </div>
+      </section>
+      <Slot />
       <JsonLd data={kruimelsLd('Voor verwijzers', p.pad)} />
     </>
   );

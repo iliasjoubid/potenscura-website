@@ -7,7 +7,7 @@ import { Voorbeeld } from './Iconen';
 import { Wisselfoto } from './Beelden';
 import { useLaterLaden } from '@/lib/laterLaden';
 
-export default function Dienst({ solliciteer = '/werken-bij#solliciteren', fotos, p = false, rand = false, voorrang = false, groot = false, sizes = '(min-width: 1100px) 45vw, calc(100vw - 40px)', kop }: { solliciteer?: string; fotos?: Foto[]; p?: boolean; rand?: boolean; voorrang?: boolean; groot?: boolean; sizes?: string; kop?: string }) {
+export default function Dienst({ solliciteer = '/werken-bij#solliciteren', fotos, p = false, rand = false, voorrang = false, sizes = '(min-width: 1100px) 45vw, calc(100vw - 40px)', kop }: { solliciteer?: string; fotos?: Foto[]; p?: boolean; rand?: boolean; voorrang?: boolean; sizes?: string; kop?: string }) {
   const [actief, zetActief] = useState(0);
   const [alle, laadAlle] = useLaterLaden();
   const knoppen = useRef<(HTMLButtonElement | null)[]>([]);
@@ -22,7 +22,7 @@ export default function Dienst({ solliciteer = '/werken-bij#solliciteren', fotos
   };
 
   return (
-    <div className={`dienst${groot ? " dienst--groot" : ""}`}>
+    <div className="dienst">
       {fotos && <Wisselfoto fotos={fotos} actief={actief} sizes={sizes} p={p} voorrang={voorrang} alle={alle} className={`dienst__foto${rand ? ' wisselfoto--rand' : ''}`} />}
       {kop && <h2 className="kop-klein dienst__kop">{kop}</h2>}
       <div className="woorden dienst__tabs" role="tablist" aria-label="Wat je doet op elk moment" onKeyDown={toetsen} onPointerEnter={laadAlle} onFocus={laadAlle} onTouchStart={laadAlle}>

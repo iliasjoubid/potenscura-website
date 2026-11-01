@@ -1,4 +1,4 @@
-import { reeks, RIJNKADE, BEDSTEE, STADHUIS, PAND, type Bron, type Foto } from '@/lib/beeld';
+import { reeks, RIJNKADE, BEDSTEE, PAND, type Bron, type Foto } from '@/lib/beeld';
 
 const BREED = [1280, 1920, 2560];
 const MIDDEN = [800, 1200, 1600];
@@ -46,15 +46,6 @@ export function Pand({ sizes, voorrang = false, vierkantOpTelefoon = false }: { 
   );
 }
 
-export function PandVierkant({ sizes, voorrang = false }: { sizes: string; voorrang?: boolean }) {
-  return (
-    <picture>
-      <source type="image/avif" srcSet={reeks('pand-vierkant', VIERKANT, 'avif')} sizes={sizes} />
-      <img src="/beeld/pand-vierkant-900.webp" srcSet={reeks('pand-vierkant', VIERKANT, 'webp')} sizes={sizes} width={1500} height={1500} alt={PAND.alt} {...laden(voorrang)} />
-    </picture>
-  );
-}
-
 export function Horizonfoto({ foto, sizes, voorrang = false, actief, strook = false }: { foto: Foto; sizes: string; voorrang?: boolean; actief?: boolean; strook?: boolean }) {
   const [groot, klein] = strook ? ([31, 16] as const) : ([16, 125] as const);
   return (
@@ -79,33 +70,29 @@ export function StrookFoto({ foto, sizes }: { foto: Foto; sizes: string }) {
 
 export function KopFoto({ foto }: { foto: Foto }) {
   return (
-    <figure className="held__beeld held__beeld--half held__beeld--reeks" data-laag={(foto.f > 0 && foto.f < 0.5) || undefined} style={{ '--f': foto.f } as React.CSSProperties}>
+    <figure className="held__beeld held__beeld--half held__beeld--reeks" style={{ '--f': foto.f } as React.CSSProperties}>
       <Horizonfoto foto={foto} sizes={`(min-width: 1100px) 50vw, ${KOLOM}`} voorrang />
-      {foto.f > 0 && <span className="horizon" aria-hidden="true" />}
+      <span className="horizon" aria-hidden="true" />
       <figcaption className="held__bron"><BronRegel bron={foto} /></figcaption>
     </figure>
   );
 }
 
-export function Wisselfoto({ fotos, actief, sizes, p = false, voorrang = false, alle = true, strook = false, className = '' }: { fotos: Foto[]; actief: number; sizes: string; p?: boolean; voorrang?: boolean; alle?: boolean; strook?: boolean; className?: string }) {
+export function Wisselfoto({ fotos, actief, sizes, p = false, voorrang = false, alle = true, className = '' }: { fotos: Foto[]; actief: number; sizes: string; p?: boolean; voorrang?: boolean; alle?: boolean; className?: string }) {
   return (
-    <figure className={`wisselfoto${p ? ' wisselfoto--p' : ''}${strook ? ' wisselfoto--strook' : ''} ${className}`.trim()} data-laag={fotos[0].f < 0.5 || undefined} style={{ '--f': fotos[0].f } as React.CSSProperties}>
-      {fotos.map((foto, i) => (alle || i === actief) && <Horizonfoto key={foto.naam} foto={foto} sizes={sizes} actief={i === actief} voorrang={voorrang && i === 0} strook={strook} />)}
-      <span className={`horizon${voorrang ? "" : " horizon--volg"}`} aria-hidden="true" />
+    <figure className={`wisselfoto${p ? ' wisselfoto--p' : ''} ${className}`.trim()} style={{ '--f': fotos[0].f } as React.CSSProperties}>
+      {fotos.map((foto, i) => (alle || i === actief) && <Horizonfoto key={foto.naam} foto={foto} sizes={sizes} actief={i === actief} voorrang={voorrang && i === 0} />)}
+      <span className="horizon horizon--volg" aria-hidden="true" />
       <figcaption className="wisselfoto__bron"><BronRegel bron={fotos[actief] ?? fotos[0]} /></figcaption>
     </figure>
   );
 }
 
-
-export function Stadhuis({ sizes }: { sizes: string }) {
+export function PandVierkant({ sizes, voorrang = false }: { sizes: string; voorrang?: boolean }) {
   return (
-    <figure className="los-foto">
-      <picture>
-        <source type="image/avif" srcSet={reeks('stadhuis-15', [480, 640, 800, 1200, 1600], 'avif')} sizes={sizes} />
-        <img src="/beeld/stadhuis-15-800.webp" srcSet={reeks('stadhuis-15', [480, 640, 800, 1200, 1600], 'webp')} sizes={sizes} width={1600} height={1067} alt={STADHUIS.alt} loading="lazy" decoding="async" />
-      </picture>
-      <figcaption className="foto-bron"><BronRegel bron={STADHUIS} /></figcaption>
-    </figure>
+    <picture>
+      <source type="image/avif" srcSet={reeks('pand-vierkant', VIERKANT, 'avif')} sizes={sizes} />
+      <img src="/beeld/pand-vierkant-900.webp" srcSet={reeks('pand-vierkant', VIERKANT, 'webp')} sizes={sizes} width={1500} height={1500} alt={PAND.alt} {...laden(voorrang)} />
+    </picture>
   );
 }

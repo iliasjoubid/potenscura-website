@@ -3,6 +3,7 @@ import './globals.css';
 import Kop from '@/components/Kop';
 import Voet from '@/components/Voet';
 import JsonLd from '@/components/JsonLd';
+import ZwevendeKnop from '@/components/ZwevendeKnop';
 import { concept, paginas } from '@/lib/gegevens';
 import { SITE } from '@/lib/site';
 import { organisatieLd, websiteLd } from '@/lib/structured';
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Kop />
         <main id="inhoud">{children}</main>
         <Voet />
+        <ZwevendeKnop />
         <JsonLd data={[organisatieLd(), websiteLd()]} />
       </body>
     </html>
