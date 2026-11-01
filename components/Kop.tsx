@@ -6,10 +6,16 @@ import { Menu } from './Iconen';
 import { telefoon } from '@/lib/site';
 
 export const hoofdmenu = [
+  { pad: '/', naam: 'Home' },
+  { pad: '/over-ons', naam: 'Over Potens Cura' },
   { pad: '/wonen', naam: 'Wonen' },
-  { pad: '/verwijzers', naam: 'Verwijzers' },
-  { pad: '/werken-bij', naam: 'Werken bij' },
-  { pad: '/over-ons', naam: 'Over ons' },
+  { pad: '/begeleiding', naam: 'Begeleiding' },
+  { pad: '/traject', naam: 'Het traject' },
+  { pad: '/ouders', naam: 'Voor ouders' },
+  { pad: '/verwijzers', naam: 'Voor verwijzers' },
+  { pad: '/kwaliteit', naam: 'Kwaliteit & veiligheid' },
+  { pad: '/vragen', naam: 'FAQ' },
+  { pad: '/contact', naam: 'Contact' },
 ];
 
 export default function Kop() {
@@ -20,7 +26,7 @@ export default function Kop() {
     <header className="kop">
       <div className="kop__binnen">
         <Link className="kop__logo" href="/" aria-label="Potens Cura, naar de home">
-          <img src="/beeld/logo-400.png" alt="Potens Cura, samen aan perspectief" width={400} height={135} />
+          <img src="/beeld/logo-400.png" alt="Potens Cura" width={400} height={135} />
         </Link>
         <nav className={`kop__nav${open ? ' open' : ''}`} id="menu" aria-label="Hoofdmenu">
           <ul>

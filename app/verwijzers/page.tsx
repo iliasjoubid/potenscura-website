@@ -1,55 +1,80 @@
-import Link from 'next/link';
 import Aanmeldkaart from '@/components/Aanmeldkaart';
 import JsonLd from '@/components/JsonLd';
-import { PaginaKop, Slot } from '@/components/Blokken';
-import { KopFoto } from '@/components/Beelden';
-import { aanmelden, doelgroep, financiering, paginas } from '@/lib/gegevens';
+import { PaginaKop } from '@/components/Blokken';
+import { Voorbeeld } from '@/components/Iconen';
+import { StrookFoto } from '@/components/Beelden';
+import { ROUTE } from '@/lib/beeld';
+import { aanmelden, haltes, openbaar, paginas } from '@/lib/gegevens';
+import { datum } from '@/lib/site';
 import { meta } from '@/lib/meta';
 import { kruimelsLd } from '@/lib/structured';
 
 export const metadata = meta('verwijzers');
 
-const stappen = [
-  { titel: 'Eerste contact', tekst: 'Neem telefonisch of per e-mail contact op. We bespreken kort de vraag en de situatie.' },
-  { titel: 'Informatie delen', tekst: 'Als aanvullende informatie nodig is, spreken we af hoe die veilig kan worden aangeleverd. Stuur geen cliëntgegevens via een gewoon contactformulier.' },
-  { titel: 'Kennismaking en intake', tekst: 'We bespreken samen met de jongere en betrokkenen of de woonplek, begeleiding en ondersteuningsvraag bij elkaar passen.' },
-  { titel: 'Vervolgafspraken', tekst: 'Als er een passende match is en de financiering is geregeld, maken we afspraken over het vervolg en een mogelijke start.' },
-];
-
 export default function Verwijzers() {
   const p = paginas.verwijzers;
+  const { tot23 } = openbaar;
   return (
     <>
       <PaginaKop
         h1={p.h1}
-        zin={`Informatie voor verwijzers en samenwerkingspartners over kleinschalig wonen in Arnhem voor ${doelgroep.tekst}.`}
-        naast={<div className="verwijzers-kaart"><Aanmeldkaart groot /></div>}
-      />
-      <section className="band band--vlak" aria-labelledby="aanmelden-route">
+        zin="Alle feiten op één kaart, om te printen of als pdf te bewaren."
+        naast={<Aanmeldkaart groot />}
+        className="print-kaart"
+      >
+        <div className="kop-route niet-printen" id="route">
+          <h2 className="kop-klein">Van eerste telefoontje tot plaatsing</h2>
+          <dl className="kop-route__stappen">
+            {aanmelden.route.map((r, i) => (
+              <div key={aanmelden.stappen[i]}><dt>{aanmelden.stappen[i]}</dt><dd>{r}</dd></div>
+            ))}
+          </dl>
+          {aanmelden.routeStatus === 'voorbeeld' && <Voorbeeld />}
+        </div>
+        <div className="kop-noot niet-printen">
+          <h2 className="kop-klein">Waarom geen formulier</h2>
+          <p>{aanmelden.geenFormulier}</p>
+        </div>
+      </PaginaKop>
+
+      <section className="band band--vlak" id="weg" aria-labelledby="weg-kop">
         <div className="raster">
-          <div className="home-sectie-kop">
-            <p className="home-overline">Aanmelden</p>
-            <h2 id="aanmelden-route">Van eerste contact tot een passende plek.</h2>
-            <p>Een plaatsing begint met afstemmen. We kijken niet alleen naar beschikbaarheid, maar vooral of de woonvorm en begeleiding aansluiten bij de jongere.</p>
+          <div className="vakken">
+            <div className="vakken__vak vakken__vak--navy vakken__vak--fotostrook">
+              <StrookFoto foto={ROUTE} sizes="(min-width: 1100px) 55vw, calc(100vw - 40px)" />
+              <div className="vakken__tekst">
+                <h2 className="vakken__groot">Tot 23 jaar</h2>
+                <p>{tot23.tekst}</p>
+                <p className="vakken__bron">Bron: <a href={tot23.link}>{tot23.bron}</a>, nagelezen op {datum(tot23.nagelezen)}.</p>
+              </div>
+            </div>
+            <div className="vakken__vak vakken__vak--tabel">
+              <div className="tabel-kop">
+                <h2 id="weg-kop">Van aankomst tot eigen benen</h2>
+                <Voorbeeld />
+              </div>
+              <div className="tabel-schuif">
+                <table className="tabel">
+                  <thead>
+                    <tr><th scope="col">Halte</th><th scope="col">Wonen</th><th scope="col">Begeleiding</th><th scope="col">De jongere werkt aan</th></tr>
+                  </thead>
+                  <tbody>
+                    {haltes.map((h) => (
+                      <tr key={h.sleutel}>
+                        <th scope="row">{h.naam}</th>
+                        <td data-kop="Wonen">{h.wonen}</td>
+                        <td data-kop="Begeleiding">{h.begeleiding}</td>
+                        <td data-kop="De jongere werkt aan">{h.jij}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-          <div className="verwijzers-stappen">
-            {stappen.map((s, i) => <article key={s.titel}><span>0{i + 1}</span><div><h3>{s.titel}</h3><p>{s.tekst}</p></div></article>)}
-          </div>
         </div>
       </section>
-      <section className="band band--navy" aria-labelledby="verwijzers-doelgroep">
-        <div className="raster verwijzers-info">
-          <div><p className="home-overline home-overline--licht">Doelgroep</p><h2 id="verwijzers-doelgroep">Voor wie is Potens Cura?</h2><p>{doelgroep.waarom}</p><p>We kijken naar de jongere als persoon: diens mogelijkheden, ondersteuningsvraag, motivatie, veiligheid en de mate waarin onze woonvorm aansluit.</p><p><Link className="pijl-link" href="/in-en-exclusiecriteria">Bekijk de inclusie- en exclusiecriteria</Link></p></div>
-          <div><p className="home-overline home-overline--licht">Financiering</p><h2>Afstemming per jongere</h2><p>{financiering.antwoord} {financiering.gemeente}</p><p>{aanmelden.beschikbaarheid}</p></div>
-        </div>
-      </section>
-      <section className="band band--vlak">
-        <div className="raster verwijzers-contact">
-          <div><h2>Overleggen of aanmelden?</h2><p>Bel of mail ons. We denken graag mee over de vraag en de mogelijkheden.</p></div>
-          <div><a className="knop" href="tel:+31643534242">Bel 06 43 53 42 42</a><Link className="knop knop--rand" href="/contact">Contactgegevens</Link></div>
-        </div>
-      </section>
-      <Slot />
+
       <JsonLd data={kruimelsLd('Voor verwijzers', p.pad)} />
     </>
   );

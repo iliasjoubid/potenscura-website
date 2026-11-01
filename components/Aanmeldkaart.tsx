@@ -1,25 +1,24 @@
-import { aanmelden, bijgewerkt, dagbesteding, doelgroep, plaats, financiering, begeleiding } from '@/lib/gegevens';
-import { datum, email, hoofdletter, telefoon } from '@/lib/site';
+import { aanmelden, bijgewerkt, dagbesteding, doelgroep, plaats, methodieken, financiering, begeleiding } from '@/lib/gegevens';
+import { datum, email, hoofdletter, opsomming, telefoon } from '@/lib/site';
 import { Voorbeeld } from './Iconen';
 import PrintKnop from './PrintKnop';
 
-export const kaartRijen: [string, React.ReactNode][] = [
-  ['Voor wie', `${hoofdletter(doelgroep.tekst)} ${doelgroep.situatie}, die met passende ondersteuning willen groeien in zelfstandigheid en eigen regie.`],
+export const kaartRijen: [string, string][] = [
+  ['Voor wie', `${hoofdletter(doelgroep.tekst)} ${doelgroep.situatie}, ${doelgroep.problematiek}.`],
   ['Voorwaarde', `${dagbesteding.kort}.`],
-  ['Plaatsing', <><a href="/in-en-exclusiecriteria">Bekijk de inclusie- en exclusiecriteria</a>. Iedere aanmelding wordt individueel beoordeeld.</>],
   ['Wonen', 'Vier studio\'s met eigen keuken, (semi)zelfstandig en niet in een groep. Badkamer en toiletten gedeeld.'],
   ['Begeleiding', `${hoofdletter(begeleiding.waarde)}.`],
   ['Werkwijze', 'Vertrouwensband, begeleiding op maat en een perspectiefplan met jongere en netwerk, op vaste momenten geëvalueerd.'],
-  ['Methodieken', 'Presentiebenadering, systeemgericht en cultuursensitief.'],
+  ['Methodieken', `${hoofdletter(opsomming(methodieken.namen.map((m) => m.replace(' werken', ''))))}.`],
   ['Financiering', financiering.kort],
   ['Regio', plaats.waarde!],
   ['Plek', aanmelden.beschikbaarheid],
-  ['Aanmelden', 'Bellen of mailen, veilige gegevensuitwisseling afstemmen en een intakegesprek.'],
+  ['Aanmelden', 'Bellen of mailen, stukken via beveiligde mail, dan een intakegesprek.'],
 ];
 
 export default function Aanmeldkaart({ groot = false }: { groot?: boolean }) {
   const klein: [string, React.ReactNode][] = [
-    ['Financiering', financiering.kort],
+    ['Financiering', 'Jeugdwet of Wmo'],
     ['Voorwaarde', dagbesteding.kort],
     ['Plek', aanmelden.beschikbaarheid.replace(/\.$/, '')],
     ['Aanmelden', 'Bellen of mailen, dan een intakegesprek'],
@@ -36,7 +35,7 @@ export default function Aanmeldkaart({ groot = false }: { groot?: boolean }) {
       {groot && <img className="print-alleen kaart__logo" src="/beeld/logo-800.png" alt="Potens Cura" width={800} height={270} />}
       <header className="kaart__kop">
         {groot ? <h2 className="kaart__naam" id="kaart-naam">Aanmeldkaart Potens Cura</h2> : <span className="kaart__naam">Aanmeldkaart</span>}
-        {groot && <span className="kaart__datum">Bijgewerkt op {datum(bijgewerkt)}</span>}
+
       </header>
       <dl className="kaart__feiten">
         {rijen.map(([dt, dd]) => (

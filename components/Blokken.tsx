@@ -29,8 +29,8 @@ export function Huis() {
             <Link className="pijl-link" href="/wonen#dag">Zo ziet een dag eruit <Pijl /></Link>
           </div>
           <div className="huis__vak huis__vak--goud">
-            <h3 className="huis__groot">{doelgroep.leeftijdVan} tot en met {doelgroep.leeftijdTot} jaar</h3>
-            <p>Voor jongeren die een stabiele woonplek en persoonlijke begeleiding nodig hebben om verder te groeien in zelfstandigheid en eigen regie.</p>
+            <h3 className="huis__groot">{doelgroep.leeftijdVan} tot {doelgroep.leeftijdTot} jaar</h3>
+            <p>Voor jongeren {doelgroep.situatie}, {doelgroep.problematiek}.</p>
             <p>{doelgroep.waarom}</p>
           </div>
           <div className="huis__vak huis__werkwijze-kop">

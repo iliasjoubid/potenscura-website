@@ -9,7 +9,6 @@ export function organisatieLd() {
     '@type': 'Organization',
     '@id': ORG_ID,
     name: organisatie.naam,
-    slogan: organisatie.motto,
     url: SITE,
     logo: volledig('/beeld/logo-800.png'),
     image: volledig('/beeld/logo-800.png'),

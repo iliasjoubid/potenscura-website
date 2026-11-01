@@ -25,7 +25,7 @@ export default function Contact() {
         <dl className="contact">
           <div><dt>Telefoon</dt><dd><a href={telefoon.link}>{telefoon.tekst}</a></dd></div>
           <div><dt>E-mail</dt><dd><a href={email.link}>{email.tekst}</a></dd></div>
-          <div><dt>Plaats</dt><dd>{plaats.waarde}</dd></div>
+          <div><dt>Adres</dt><dd>Johan de Wittlaan 75, 6828 XD Arnhem</dd></div>
         </dl>
         {(telefoon.voorbeeld || email.voorbeeld) && <Voorbeeld className="blok__voorbeeld" />}
       </PaginaKop>
@@ -34,7 +34,7 @@ export default function Contact() {
         <div className="raster twee twee--breed">
           <div className="twee__links">
             <h2 className="kop-klein">Een jongere aanmelden</h2>
-            <p className="contact__tekst">{aanmelden.geenFormulier} Bel of mail ons; stukken met persoonsgegevens stuur je via beveiligde mail.</p>
+            <p className="contact__tekst">{aanmelden.geenFormulier} Bel of mail ons voor een eerste afstemming. Verstuur geen cliëntgegevens via dit openbare formulier of gewone e-mail; stem een veilige overdracht vooraf met ons af.</p>
             <ul className="contact__links">
               <li><Link className="pijl-link" href="/verwijzers">De aanmeldkaart <Pijl /></Link></li>
               <li><Link className="pijl-link" href="/werken-bij#solliciteren">Solliciteren <Pijl /></Link></li>
@@ -49,8 +49,11 @@ export default function Contact() {
               letOp="Zet geen gegevens over de gezondheid of de situatie van een jongere in dit formulier. Een aanmelding gaat per telefoon of beveiligde mail."
               velden={[
                 { naam: 'naam', label: 'Je naam', verplicht: true, autocomplete: 'name' },
+                { naam: 'organisatie', label: 'Organisatie' },
+                { naam: 'functie', label: 'Functie of rol' },
+                { naam: 'telefoon', label: 'Telefoonnummer', soort: 'tel' },
                 { naam: 'email', label: 'Je e-mailadres', soort: 'email', verplicht: true, autocomplete: 'email' },
-                { naam: 'onderwerp', label: 'Waarover gaat het?', soort: 'select', verplicht: true, opties: ['Een vraag', 'Een sollicitatie', 'Een klacht', 'Iets anders'] },
+                { naam: 'onderwerp', label: 'Waarover gaat het?', soort: 'select', verplicht: true, opties: ['Een vraag', 'Een aanmelding bespreken', 'Een sollicitatie', 'Een klacht', 'Iets anders'] },
                 { naam: 'bericht', label: 'Je bericht', soort: 'textarea', verplicht: true },
               ]}
             />

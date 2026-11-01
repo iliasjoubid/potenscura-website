@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { RIJNKADE } from '@/lib/beeld';
-import { doelgroep } from '@/lib/gegevens';
+import { begeleiding, doelgroep } from '@/lib/gegevens';
 import { Rijnkade, BronRegel } from './Beelden';
 
 export default function Held() {
@@ -12,13 +12,9 @@ export default function Held() {
         <figcaption className="held__bron"><BronRegel bron={RIJNKADE} /></figcaption>
       </figure>
       <div className="held__tekst">
-        <p className="held__label">Kleinschalig wonen in Arnhem</p>
-        <h1 id="kernzin" className="kernzin">Een eigen plek. Ruimte om te groeien.</h1>
-        <p className="held__zin">Potens Cura biedt vier eigen studio’s aan jongeren van {doelgroep.leeftijdVan} tot {doelgroep.leeftijdTot} jaar die niet thuis kunnen wonen. Met persoonlijke begeleiding werken we samen aan vertrouwen, ontwikkeling en zelfstandigheid.</p>
-        <div className="held__acties">
-          <Link className="knop knop--goud held__knop" href="/wonen">Ontdek de woonplek</Link>
-          <Link className="pijl-link held__meer" href="/verwijzers">Voor verwijzers <span aria-hidden="true">→</span></Link>
-        </div>
+        <h1 id="kernzin" className="kernzin">Wonen met&nbsp;perspectief.</h1>
+        <p className="held__zin">Potens Cura biedt jongeren van 16 tot 23 jaar een eigen plek om te wonen, met persoonlijke begeleiding en aandacht voor hun ontwikkeling en toekomst.</p>
+        <Link className="knop knop--goud held__knop" href="/wonen">Zo woon je hier</Link>
       </div>
     </section>
   );

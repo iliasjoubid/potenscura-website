@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { concept } from '@/lib/gegevens';
 import { email, telefoon } from '@/lib/site';
 
 export type Veld = {
@@ -12,7 +13,7 @@ export type Veld = {
   hint?: string;
 };
 
-type Stand = '' | 'bezig' | 'verstuurd' | 'mislukt';
+type Stand = '' | 'bezig' | 'verstuurd' | 'concept' | 'mislukt';
 
 export default function Formulier({ id, velden, knop, letOp, breed }: { id: string; velden: Veld[]; knop: string; letOp?: string; breed?: boolean }) {
   const [klaar, zetKlaar] = useState(false);
@@ -26,6 +27,7 @@ export default function Formulier({ id, velden, knop, letOp, breed }: { id: stri
         e.preventDefault();
         const form = e.currentTarget;
         if (!form.reportValidity()) return;
+        if (concept) return zetStand('concept');
         zetStand('bezig');
         const data = new FormData(form);
         try {
@@ -76,6 +78,12 @@ export default function Formulier({ id, velden, knop, letOp, breed }: { id: stri
         );
       })}
       <button className="knop" type="submit" disabled={!klaar || stand === 'bezig'}>{stand === 'bezig' ? 'Bezig met versturen' : knop}</button>
+      {concept && <p className="formulier__concept">Dit is een concept: het formulier verstuurt en bewaart niets.</p>}
+      {stand === 'concept' && (
+        <p className="formulier__uitslag" role="status">
+          Gelukt, alle velden kloppen. Omdat dit een concept is, is er niets verstuurd en niets bewaard.
+        </p>
+      )}
       {stand === 'verstuurd' && (
         <p className="formulier__uitslag" role="status">Dank je, je bericht is verstuurd naar Potens Cura.</p>
       )}

@@ -1,13 +1,16 @@
 import Link from 'next/link';
-import { partijen } from '@/lib/gegevens';
+import { concept, partijen } from '@/lib/gegevens';
 
 const paginas = [
   { pad: '/wonen', naam: 'Wonen' },
+  { pad: '/begeleiding', naam: 'Begeleiding' },
+  { pad: '/traject', naam: 'Het traject' },
+  { pad: '/ouders', naam: 'Voor ouders' },
   { pad: '/verwijzers', naam: 'Voor verwijzers' },
+  { pad: '/kwaliteit', naam: 'Kwaliteit & veiligheid' },
   { pad: '/werken-bij', naam: 'Werken bij' },
   { pad: '/over-ons', naam: 'Over ons' },
   { pad: '/vragen', naam: 'Vragen' },
-  { pad: '/in-en-exclusiecriteria', naam: 'Plaatsingscriteria' },
   { pad: '/contact', naam: 'Contact' },
   { pad: '/privacy', naam: 'Privacy' },
   { pad: '/klachten', naam: 'Klachten' },
@@ -50,7 +53,8 @@ export default function Voet() {
             </dd>
           </div>
         </dl>
-        <div className="voet__contact"><a href="tel:+31643534242">06 43 53 42 42</a><a href="mailto:info@potenscura.nl">info@potenscura.nl</a><span>Arnhem</span></div>
+        <p className="voet__concept">Potens Cura B.V. · KvK 96742933 · Johan de Wittlaan 75, 6828 XD Arnhem · <a href="mailto:info@potenscura.nl">info@potenscura.nl</a></p>
+        {concept && <p className="voet__concept">Conceptwebsite: nog niet publiceren of gebruiken voor het ontvangen van aanmeldingen.</p>}
       </div>
     </footer>
   );
