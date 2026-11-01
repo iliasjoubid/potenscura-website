@@ -2,7 +2,7 @@ import Link from 'next/link';
 import JsonLd from '@/components/JsonLd';
 import Koers from '@/components/Koers';
 import { PaginaKop, Slot, Werkwijze } from '@/components/Blokken';
-import { Bedstee, BronRegel } from '@/components/Beelden';
+import { Bedstee } from '@/components/Beelden';
 import { Pijl } from '@/components/Iconen';
 import { BEDSTEE } from '@/lib/beeld';
 import { begeleiding, dagbesteding, doelgroep, openbaar, organisatie, paginas, partijen } from '@/lib/gegevens';
@@ -23,7 +23,6 @@ export default function OverOns() {
           <figure className="held__beeld held__beeld--bedstee held__beeld--half">
             <Bedstee voorrang half />
             <span className="horizon" aria-hidden="true" />
-            <figcaption className="held__bron"><BronRegel bron={BEDSTEE} /></figcaption>
           </figure>
         }
       />

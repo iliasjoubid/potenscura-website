@@ -180,8 +180,8 @@ export const haltes = [
   },
   {
     sleutel: 'oefenen', naam: 'Oefenen', foto: 'boodschappen op het aanrecht',
-    wonen: 'Je woont bijna zelfstandig, met begeleiding op afstand.',
-    begeleiding: 'Op vaste momenten kijken we hoe het gaat met je doelen. De begeleiding komt meer op afstand.',
+    wonen: 'Je oefent met steeds meer zelfstandigheid in je eigen studio. Begeleiding blijft dag en nacht op de locatie aanwezig.',
+    begeleiding: 'Samen met je persoonlijk begeleider bespreek je je voortgang en oefen je met nieuwe verantwoordelijkheden. Er is altijd 24/7 begeleiding aanwezig op de locatie.',
     jij: 'Zelf plannen, rekeningen betalen en een woning zoeken.',
     ouders: 'Ze zien je steeds meer zelf regelen.',
   },

@@ -25,7 +25,7 @@ export default function Contact() {
         <dl className="contact">
           <div><dt>Telefoon</dt><dd><a href={telefoon.link}>{telefoon.tekst}</a></dd></div>
           <div><dt>E-mail</dt><dd><a href={email.link}>{email.tekst}</a></dd></div>
-          <div><dt>Adres</dt><dd>Johan de Wittlaan 75, 6828 XD Arnhem</dd></div>
+          <div><dt>Adres</dt><dd>Johan de Wittlaan 75, 6828 XD Arnhem<br /><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Johan+de+Wittlaan+75%2C+6828+XD+Arnhem" target="_blank" rel="noopener noreferrer" aria-label="Open routebeschrijving naar Potens Cura in Google Maps (opent in een nieuw tabblad)">Bekijk route in Google Maps ↗</a></dd></div>
         </dl>
         {(telefoon.voorbeeld || email.voorbeeld) && <Voorbeeld className="blok__voorbeeld" />}
       </PaginaKop>

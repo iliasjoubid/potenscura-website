@@ -27,14 +27,6 @@ function Uitsneden({ naam, bron, voorrang, half = false }: { naam: string; bron:
 export const Rijnkade = ({ voorrang = false }: { voorrang?: boolean }) => <Uitsneden naam="rijnkade" bron={RIJNKADE} voorrang={voorrang} />;
 export const Bedstee = ({ voorrang = false, half = false }: { voorrang?: boolean; half?: boolean }) => <Uitsneden naam="bedstee" bron={BEDSTEE} voorrang={voorrang} half={half} />;
 
-export function BronRegel({ bron }: { bron: Bron }) {
-  return (
-    <>
-      {bron.tekst} Foto <a href={bron.bron}>{bron.maker}</a> (bewerkt), <a href={bron.licentieLink}>{bron.licentie}</a>.
-    </>
-  );
-}
-
 export function Pand({ sizes, voorrang = false, vierkantOpTelefoon = false }: { sizes: string; voorrang?: boolean; vierkantOpTelefoon?: boolean }) {
   return (
     <picture>
@@ -63,7 +55,6 @@ export function StrookFoto({ foto, sizes }: { foto: Foto; sizes: string }) {
     <figure className="strookfoto" style={{ '--f': foto.f } as React.CSSProperties}>
       <Horizonfoto foto={foto} sizes={sizes} strook />
       <span className="horizon horizon--volg" aria-hidden="true" />
-      <figcaption className="wisselfoto__bron"><BronRegel bron={foto} /></figcaption>
     </figure>
   );
 }
@@ -73,7 +64,6 @@ export function KopFoto({ foto }: { foto: Foto }) {
     <figure className="held__beeld held__beeld--half held__beeld--reeks" style={{ '--f': foto.f } as React.CSSProperties}>
       <Horizonfoto foto={foto} sizes={`(min-width: 1100px) 50vw, ${KOLOM}`} voorrang />
       <span className="horizon" aria-hidden="true" />
-      <figcaption className="held__bron"><BronRegel bron={foto} /></figcaption>
     </figure>
   );
 }
@@ -83,7 +73,6 @@ export function Wisselfoto({ fotos, actief, sizes, p = false, voorrang = false, 
     <figure className={`wisselfoto${p ? ' wisselfoto--p' : ''} ${className}`.trim()} style={{ '--f': fotos[0].f } as React.CSSProperties}>
       {fotos.map((foto, i) => (alle || i === actief) && <Horizonfoto key={foto.naam} foto={foto} sizes={sizes} actief={i === actief} voorrang={voorrang && i === 0} />)}
       <span className="horizon horizon--volg" aria-hidden="true" />
-      <figcaption className="wisselfoto__bron"><BronRegel bron={fotos[actief] ?? fotos[0]} /></figcaption>
     </figure>
   );
 }
