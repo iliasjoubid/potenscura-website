@@ -8,11 +8,13 @@ import { concept, paginas } from '@/lib/gegevens';
 import { SITE } from '@/lib/site';
 import { organisatieLd, websiteLd } from '@/lib/structured';
 
+const nietIndexeren = concept || process.env.VERCEL_ENV === 'preview';
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: { default: paginas.home.title, template: '%s' },
   description: paginas.home.description,
-  robots: concept ? { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false } } : { index: true, follow: true },
+  robots: nietIndexeren ? { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false } } : { index: true, follow: true },
   icons: { icon: [{ url: '/favicon-32.png', sizes: '32x32', type: 'image/png' }, { url: '/icon-512.png', sizes: '512x512', type: 'image/png' }], apple: '/apple-touch-icon.png' },
   openGraph: { siteName: 'Potens Cura', locale: 'nl_NL', type: 'website' },
   formatDetection: { telephone: false, email: false, address: false },

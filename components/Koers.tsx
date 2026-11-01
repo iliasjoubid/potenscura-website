@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { koers } from '@/lib/gegevens';
-import { Voorbeeld } from './Iconen';
 
 export default function Koers() {
   const [actief, zetActief] = useState(0);
@@ -28,7 +27,7 @@ export default function Koers() {
 
   return (
     <div className="koers">
-      <h2 className="koers__kop" id="koers-kop">Doel, missie en visie</h2>
+      <h2 className="koers__kop" id="koers-kop">Missie, visie en doel</h2>
       <div className="woorden koers__woorden" role="tablist" aria-labelledby="koers-kop" onKeyDown={toetsen}>
         {koers.map((k, i) => (
           <button
@@ -47,7 +46,6 @@ export default function Koers() {
           <div key={k.sleutel} className="koers__paneel" role="tabpanel" id={k.sleutel} aria-labelledby={`koers-${k.sleutel}`} tabIndex={0} data-actief={i === actief}>
             <h3 className="koers__naam">{k.naam}</h3>
             <p className="koers__tekst">{k.tekst}</p>
-            {k.status === 'voorbeeld' && <Voorbeeld tekst="Voorstel" />}
           </div>
         ))}
       </div>

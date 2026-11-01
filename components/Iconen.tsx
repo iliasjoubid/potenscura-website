@@ -14,6 +14,3 @@ export function Menu() {
   );
 }
 
-export function Voorbeeld({ className = '', tekst = 'Voorbeeld' }: { className?: string; tekst?: string }) {
-  return <span className={`label-voorbeeld ${className}`.trim()}>{tekst}</span>;
-}

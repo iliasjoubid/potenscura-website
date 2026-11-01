@@ -3,7 +3,7 @@ import Formulier from '@/components/Formulier';
 import JsonLd from '@/components/JsonLd';
 import { PaginaKop } from '@/components/Blokken';
 import { KopFoto } from '@/components/Beelden';
-import { Pijl, Voorbeeld } from '@/components/Iconen';
+import { Pijl } from '@/components/Iconen';
 import { CONTACT } from '@/lib/beeld';
 import { aanmelden, paginas, plaats } from '@/lib/gegevens';
 import { email, telefoon } from '@/lib/site';
@@ -18,7 +18,7 @@ export default function Contact() {
     <>
       <PaginaKop
         h1={p.h1}
-        zin="Voor een aanmelding, een vraag, een sollicitatie of een klacht."
+        zin="Heeft u een vraag over onze woonvoorziening, begeleiding of de mogelijkheden voor een aanmelding? Neem gerust contact met ons op. We denken graag met u mee."
         className="pagina-kop--contact"
         naast={<KopFoto foto={CONTACT} />}
       >
@@ -27,7 +27,7 @@ export default function Contact() {
           <div><dt>E-mail</dt><dd><a href={email.link}>{email.tekst}</a></dd></div>
           <div><dt>Adres</dt><dd>Johan de Wittlaan 75, 6828 XD Arnhem<br /><a href="https://www.google.com/maps/dir/?api=1&destination=Johan+de+Wittlaan+75%2C+6828+XD+Arnhem" target="_blank" rel="noopener noreferrer" aria-label="Open routebeschrijving naar Potens Cura in Google Maps (opent in een nieuw tabblad)">Bekijk route in Google Maps ↗</a></dd></div>
         </dl>
-        {(telefoon.voorbeeld || email.voorbeeld) && <Voorbeeld className="blok__voorbeeld" />}
+
       </PaginaKop>
 
       <section className="band band--vlak" id="bericht" aria-labelledby="bericht-kop">
@@ -45,7 +45,7 @@ export default function Contact() {
             <h2 className="kop-klein formulier__kop" id="bericht-kop">Stuur een bericht</h2>
             <Formulier
               id="bericht-formulier"
-              knop="Verstuur je bericht"
+              knop="Verstuur bericht"
               letOp="Zet geen gegevens over de gezondheid of de situatie van een jongere in dit formulier. Neem voor een aanmelding eerst telefonisch contact op om een veilige overdracht af te spreken."
               velden={[
                 { naam: 'naam', label: 'Je naam', verplicht: true, autocomplete: 'name' },

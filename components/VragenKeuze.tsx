@@ -1,8 +1,6 @@
 'use client';
-import Link from 'next/link';
 import { useRef, useState } from 'react';
 import { vragen } from '@/lib/gegevens';
-import { Pijl } from './Iconen';
 
 export default function VragenKeuze({ sleutels }: { sleutels: string[] }) {
   const lijst = sleutels.map((s) => vragen.find((v) => v.sleutel === s)!).filter(Boolean);
@@ -43,7 +41,7 @@ export default function VragenKeuze({ sleutels }: { sleutels: string[] }) {
           </div>
         ))}
       </div>
-      <Link className="pijl-link" href="/vragen">Alle vragen <Pijl /></Link>
+
     </div>
   );
 }

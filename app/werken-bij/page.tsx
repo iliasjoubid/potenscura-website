@@ -24,13 +24,13 @@ export default function WerkenBij() {
         }
       />
 
-      <Werkwijze />
+      <section className="band"><div className="raster"><div className="blok__kop"><h2>Werken in een kleinschalige woonomgeving</h2><p className="blok__intro">Je ondersteunt jongeren bij hun dagelijkse leven en persoonlijke doelen. Je werkt samen met collega’s, ouders en betrokken professionals, met aandacht voor veiligheid, vertrouwen en duidelijke afspraken.</p></div><p>Het werk vraagt om een professionele houding, zorgvuldig rapporteren, samenwerken en kunnen omgaan met wisselende situaties. Voor begeleidingsfuncties kijken we naar een passende zorg- of sociaalwerkopleiding en relevante ervaring. Waar de functie dit vereist, is een SKJ-registratie nodig. De precieze eisen bespreken we per functie.</p><p>Er is niet altijd een vacature beschikbaar. Neem gerust contact op als je interesse hebt in werken bij Potens Cura.</p></div></section><Werkwijze />
 
       <section className="band band--vlak" id="solliciteren" aria-labelledby="solliciteren-kop">
         <div className="raster solliciteren">
           <div className="solliciteren__kop">
-            <h2 id="solliciteren-kop">Solliciteren</h2>
-            <p>Vertel kort wie je bent. Een paar zinnen is genoeg.</p>
+            <h2 id="solliciteren-kop">Interesse om bij ons te werken?</h2>
+            <p>Stel jezelf kort voor en vertel welke opleiding en ervaring je meebrengt. We nemen contact op als er passende mogelijkheden zijn. Stuur geen gevoelige persoonsgegevens via dit formulier.</p>
           </div>
           <Formulier
             breed

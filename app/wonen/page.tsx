@@ -16,7 +16,7 @@ export const metadata = meta('wonen');
 const dag = [
   { deel: 'Ochtend', van: 6, jongere: 'Je staat op en gaat naar school, werk of dagbesteding.', ouder: 'Je kind staat op en gaat naar school, werk of dagbesteding.' },
   { deel: 'Middag', van: 12, jongere: 'Tijd voor afspraken, boodschappen en je eigen doelen.', ouder: 'Tijd voor afspraken, boodschappen en de doelen van je kind.' },
-  { deel: 'Avond', van: 18, jongere: 'Je kookt in je eigen keuken. Er is een begeleider om mee te praten.', ouder: 'Je kind kookt in de eigen keuken. Er is een begeleider om mee te praten.' },
+  { deel: 'Avond', van: 18, jongere: 'Je kunt zelf koken in je studio. Een begeleider is in de buurt.', ouder: 'Je kind kan zelf koken in de studio. Een begeleider is in de buurt.' },
   { deel: 'Nacht', van: 24, jongere: 'Ook \'s nachts is er begeleiding. Lig je wakker of is er iets, dan is er iemand.', ouder: 'Ook \'s nachts is er begeleiding, als je kind wakker ligt of als er iets is.' },
 ];
 
@@ -27,11 +27,11 @@ export default function Wonen() {
     <LezerKeuze>
       <PaginaKop
         h1={p.h1}
-        zin={`Een eigen studio met een eigen keuken, en ${begeleiding.naam}. Voor ${doelgroep.tekst} ${doelgroep.situatie}.`}
+        zin={`Een eigen studio met een keukenblok en ${begeleiding.naam}. Voor ${doelgroep.tekst} ${doelgroep.situatie}.`}
         naast={
           <figure className="kader-pand">
             <PandVierkant sizes="(min-width: 1100px) 600px, (min-width: 600px) 70vw, calc(100vw - 40px)" voorrang />
-            <figcaption>Het pand in Arnhem</figcaption>
+            <figcaption>Illustratie van een woonomgeving; geen foto van de locatie.</figcaption>
           </figure>
         }
       >
@@ -52,7 +52,7 @@ export default function Wonen() {
             </dl>
           </div>
           <div className="vakken__vak vakken__vak--zeven vakken__vak--navy vakken__vak--betalen" id="betalen">
-            <h2>Wie betaalt</h2>
+            <h2>Financiering</h2>
             <p className="feitzin">{financiering.antwoord}</p>
             <p>{financiering.gemeente}</p>
             <p>{verwijzing.tekst}</p>
@@ -61,10 +61,10 @@ export default function Wonen() {
           <div className="vakken__vak vakken__vak--vier" id="thuis">
             <h2>Familie en netwerk</h2>
             <LezerTekst
-              jongere="Je familie en de mensen om je heen horen erbij. Samen met jou en met hen stellen we de doelen op voor je perspectiefplan. Je achtergrond, geloof en taal tellen mee."
-              ouder="Als ouder hoor je bij het netwerk van je kind. Samen met je kind en dat netwerk stellen we de doelen op voor het perspectiefplan. Jullie achtergrond, geloof en taal tellen mee."
+              jongere="Je familie en de mensen om je heen horen erbij. Samen met jou en met hen stellen we de doelen op voor je perspectiefplan. Wat voor jou belangrijk is, nemen we mee in de begeleiding."
+              ouder="Als ouder hoor je bij het netwerk van je kind. Samen met je kind en dat netwerk stellen we de doelen op voor het perspectiefplan. We houden rekening met wat voor de jongere en het netwerk belangrijk is."
             />
-            <Link className="pijl-link" href="/#route">Van aankomst tot eigen benen <Pijl /></Link>
+            <Link className="pijl-link" href="/#route">Stappen in de begeleiding <Pijl /></Link>
           </div>
           <EenDag delen={dag} kop="Een dag" intro={`Er is ${begeleiding.naam}, zeven dagen per week. Kies een deel van de dag.`} naast fotos={DAGFOTOS} />
         </div></div>

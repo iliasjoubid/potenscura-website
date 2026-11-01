@@ -5,7 +5,7 @@ import { PaginaKop, Slot, Werkwijze } from '@/components/Blokken';
 import { Bedstee } from '@/components/Beelden';
 import { Pijl } from '@/components/Iconen';
 import { BEDSTEE } from '@/lib/beeld';
-import { begeleiding, dagbesteding, doelgroep, openbaar, organisatie, paginas, partijen } from '@/lib/gegevens';
+import { begeleiding, dagbesteding, doelgroep, openbaar, paginas, partijen } from '@/lib/gegevens';
 import { meta } from '@/lib/meta';
 import { kruimelsLd } from '@/lib/structured';
 
@@ -27,12 +27,11 @@ export default function OverOns() {
         }
       />
 
-      <section className="band band--vlak" aria-label="Doel, missie en visie, klein wonen, kwaliteit en klachten">
+      <section className="band band--vlak" aria-label="Missie, visie en doel, kleinschalig wonen, kwaliteit en klachten">
         <div className="raster">
           <div className="vakken">
             <section className="vakken__vak vakken__vak--zeven vakken__vak--koers" aria-labelledby="koers-kop">
               <Koers />
-              <p className="koers__motto">{organisatie.motto}</p>
             </section>
             <section className="vakken__vak vakken__vak--vijf" id="klein" aria-labelledby="klein-kop">
               <h2 id="klein-kop">Voor wie</h2>

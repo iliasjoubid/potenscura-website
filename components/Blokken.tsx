@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { begeleiding, doelgroep, intake, methodieken, werkwijzen } from '@/lib/gegevens';
 import { email, telefoon } from '@/lib/site';
-import { Pijl, Voorbeeld } from './Iconen';
+import { Pijl } from './Iconen';
 import { Pand } from './Beelden';
 
 
@@ -84,8 +84,8 @@ export function Slot({ grond = 'navy' }: { grond?: 'navy' | 'vlak' }) {
         <dl className="slot__contact">
           <div><dt>Telefoon</dt><dd><a href={telefoon.link}>{telefoon.tekst}</a></dd></div>
           <div>
-            <dt>E-mail</dt><dd>{email.tekst}</dd>
-            {(telefoon.voorbeeld || email.voorbeeld) && <dd className="slot__label"><Voorbeeld /></dd>}
+            <dt>E-mail</dt><dd><a href={email.link}>{email.tekst}</a></dd>
+
           </div>
         </dl>
         <a className="knop knop--goud" href={email.link}>Mail ons</a>

@@ -1,7 +1,6 @@
 'use client';
 import { useCallback, useRef, useState } from 'react';
 import { haltes, haltesLabels } from '@/lib/gegevens';
-import { Voorbeeld } from './Iconen';
 
 
 const n = haltes.length;
@@ -88,7 +87,7 @@ export default function Weg() {
             <line key={h.sleutel} className={`weg__dwars${i === actief ? ' is-actief' : i < actief ? ' is-voorbij' : ''}`} x1="0" y1={hoogte(diepte[i])} x2="1000" y2={hoogte(diepte[i])} />
           ))}
         </svg>
-        <div className="weg__haltes" role="tablist" aria-label="Haltes van aankomst tot eigen benen" data-regels="meer" onKeyDown={toetsen}>
+        <div className="weg__haltes" role="tablist" aria-label="Stappen in de begeleiding" data-regels="meer" onKeyDown={toetsen}>
           {haltes.map((h, i) => (
             <button
               key={h.sleutel}
@@ -115,7 +114,7 @@ export default function Weg() {
             </dl>
           </div>
         ))}
-        <Voorbeeld className="weg__voorbeeld" />
+        <p className="weg__voorbeeld">Het traject wordt afgestemd op de situatie van de jongere.</p>
       </div>
     </div>
   );

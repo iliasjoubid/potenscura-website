@@ -1,6 +1,5 @@
 import { aanmelden, bijgewerkt, dagbesteding, doelgroep, plaats, methodieken, financiering, begeleiding } from '@/lib/gegevens';
 import { datum, email, hoofdletter, opsomming, telefoon } from '@/lib/site';
-import { Voorbeeld } from './Iconen';
 import PrintKnop from './PrintKnop';
 
 export const kaartRijen: [string, string][] = [
@@ -26,7 +25,7 @@ export default function Aanmeldkaart({ groot = false }: { groot?: boolean }) {
   const contact: [string, React.ReactNode] = ['Contact', (
     <>
       {telefoon.tekst}<br />{email.tekst}
-      {(telefoon.voorbeeld || email.voorbeeld) && <><br /><Voorbeeld className="kaart__voorbeeld" /></>}
+
     </>
   )];
   const rijen = groot ? [...kaartRijen, contact] : klein;

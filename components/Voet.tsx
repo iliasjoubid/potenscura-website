@@ -7,10 +7,10 @@ const paginas = [
   { pad: '/traject', naam: 'Het traject' },
   { pad: '/ouders', naam: 'Voor ouders' },
   { pad: '/verwijzers', naam: 'Voor verwijzers' },
+  { pad: '/criteria', naam: 'In- en exclusiecriteria' },
   { pad: '/kwaliteit', naam: 'Kwaliteit & veiligheid' },
   { pad: '/werken-bij', naam: 'Werken bij' },
   { pad: '/over-ons', naam: 'Over ons' },
-  { pad: '/vragen', naam: 'Vragen' },
   { pad: '/contact', naam: 'Contact' },
   { pad: '/privacy', naam: 'Privacy' },
   { pad: '/klachten', naam: 'Klachten' },
@@ -32,7 +32,7 @@ export default function Voet() {
         <dl className="voet__partijen" aria-label="Kwaliteit en klachten">
           <div>
             <dt>Registratie</dt>
-            <dd><p className="voet__skj">Binnen Potens Cura werken ook <a href={skj.link}>SKJ-geregistreerde professionals</a>. SKJ registreert individuele jeugdprofessionals, niet de organisatie.</p></dd>
+            <dd><p className="voet__skj">Bij Potens Cura werken <a href={skj.link} target="_blank" rel="noopener noreferrer">SKJ-geregistreerde jeugdprofessionals</a>.</p></dd>
           </div>
           <div>
             <dt>Klachtenregeling</dt>
@@ -53,7 +53,7 @@ export default function Voet() {
             </dd>
           </div>
         </dl>
-        <p className="voet__concept">Potens Cura B.V. · KvK 96742933 · Johan de Wittlaan 75, 6828 XD Arnhem · <a href="mailto:info@potenscura.nl">info@potenscura.nl</a></p>
+        <p className="voet__concept">Potens Cura B.V. · KvK 96742933 · Johan de Wittlaan 75, 6828 XD Arnhem · <a href="tel:+31643534242">06 43 53 42 42</a> · <a href="mailto:info@potenscura.nl">info@potenscura.nl</a></p>
         {concept && <p className="voet__concept">Conceptwebsite: nog niet publiceren of gebruiken voor het ontvangen van aanmeldingen.</p>}
       </div>
     </footer>

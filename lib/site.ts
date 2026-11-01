@@ -1,8 +1,8 @@
 export const SITE = 'https://potenscura.nl';
 export const volledig = (pad: string) => new URL(pad, SITE).toString();
 
-export const telefoon = { tekst: '06 43 53 42 42', link: 'tel:+31643534242', schema: '+31 6 43 53 42 42', voorbeeld: false };
-export const email = { tekst: 'info@potenscura.nl', link: 'mailto:info@potenscura.nl', voorbeeld: false };
+export const telefoon = { tekst: '06 43 53 42 42', link: 'tel:+31643534242', schema: '+31 6 43 53 42 42' };
+export const email = { tekst: 'info@potenscura.nl', link: 'mailto:info@potenscura.nl' };
 
 const MAANDEN = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
 export const datum = (iso: string) => {

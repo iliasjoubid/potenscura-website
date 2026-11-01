@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { LezerTekst } from './Lezer';
-import { Voorbeeld } from './Iconen';
 import { Wisselfoto } from './Beelden';
 import { useLaterLaden } from '@/lib/laterLaden';
 import type { Foto } from '@/lib/beeld';
@@ -68,7 +67,7 @@ export default function EenDag({ delen, kop, intro, naast, fotos }: { delen: Dag
             </div>
           ))}
         </div>
-        <Voorbeeld className="etmaal__voorbeeld" />
+        <p className="etmaal__voorbeeld">De invulling van een dag verschilt per jongere.</p>
       </div>
     </div>
   );

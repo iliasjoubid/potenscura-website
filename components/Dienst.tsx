@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useRef, useState } from 'react';
 import { diensten } from '@/lib/gegevens';
 import type { Foto } from '@/lib/beeld';
-import { Voorbeeld } from './Iconen';
 import { Wisselfoto } from './Beelden';
 import { useLaterLaden } from '@/lib/laterLaden';
 
@@ -47,7 +46,7 @@ export default function Dienst({ solliciteer = '/werken-bij#solliciteren', fotos
         ))}
       </div>
       <div className="dienst__voet">
-        <Voorbeeld />
+        <span>Werkzaamheden verschillen per dienst.</span>
         <Link className="knop" href={solliciteer}>Solliciteren</Link>
       </div>
     </div>

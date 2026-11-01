@@ -19,7 +19,7 @@ export default function Home() {
       <section className="band band--navy band--weg" id="route" aria-labelledby="route-kop">
         <div className="raster">
           <div className="blok__kop">
-            <h2 id="route-kop">Van aankomst tot eigen benen</h2>
+            <h2 id="route-kop">Stappen in de begeleiding</h2>
             <p className="blok__intro">{doel.jongere}<span className="alleen-js"> Kies een halte op de weg.</span></p>
           </div>
           <Weg />
@@ -29,9 +29,9 @@ export default function Home() {
         <div className="raster duo">
           <div className="duo__vak" id="aanmelden">
             <h2>Een jongere aanmelden</h2>
-            <p>Alle feiten op één kaart, om te printen of als pdf te bewaren.</p>
+            <p>Wilt u weten of Potens Cura passend is voor een jongere? Bekijk onze informatie voor verwijzers en neem contact op voor overleg.</p>
             <Aanmeldkaart />
-            <Link className="knop" href="/verwijzers">Bekijk de hele kaart</Link>
+            <Link className="knop" href="/verwijzers">Meer informatie voor verwijzers</Link>
           </div>
           <div className="duo__vak" id="werken">
             <h2>Werken bij Potens&nbsp;Cura</h2>
@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </section>
       <section className="blok" id="vragen" aria-labelledby="vragen-kop">
-        <VragenKeuze sleutels={['familie', 'skj', 'voor-wie']} />
+        <VragenKeuze sleutels={['familie', 'skj', 'voor-wie', 'financiering']} />
       </section>
       <Slot />
     </>

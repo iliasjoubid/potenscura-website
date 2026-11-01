@@ -1,4 +1,4 @@
-import { organisatie, plaats, doel, doelgroep, begeleiding, vragen, methodieken, paginas, zonderWj } from './gegevens';
+import { organisatie, plaats, doel, doelgroep, begeleiding, methodieken, zonderWj } from './gegevens';
 import { SITE, email, telefoon, volledig } from './site';
 
 const ORG_ID = `${SITE}/#organisatie`;
@@ -38,20 +38,5 @@ export function kruimelsLd(naam: string, pad: string) {
       { '@type': 'ListItem', position: 1, name: 'Home', item: volledig('/') },
       { '@type': 'ListItem', position: 2, name: naam, item: volledig(pad) },
     ],
-  };
-}
-
-export const bevestigdeVragen = vragen.filter((v) => v.status === 'bevestigd' && v.lezer !== 'collega');
-
-export function vragenLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    url: volledig(paginas.vragen.pad),
-    mainEntity: bevestigdeVragen.map((v) => ({
-      '@type': 'Question',
-      name: v.vraag,
-      acceptedAnswer: { '@type': 'Answer', text: zonderWj(`${v.feit} ${v.uitleg}`) },
-    })),
   };
 }

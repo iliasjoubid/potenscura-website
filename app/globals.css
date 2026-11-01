@@ -87,10 +87,6 @@ dl, dd { margin: 0; }
 .pijl-link:hover svg { transform: translateX(4px); }
 .knop--rand-licht { background: none; color: var(--papier); border: 1.5px solid color-mix(in srgb, var(--papier) 70%, transparent); padding: 0 24.5px; }
 .knop--rand-licht:hover { background: var(--papier); color: var(--navy); }
-.label-voorbeeld {
-  display: inline-block; padding: 3px 8px 4px; border: 1px solid currentColor;
-  font-size: 0.8125rem; font-weight: 500; line-height: 1.2; color: var(--zacht);
-}
 html:not(.js) .alleen-js { display: none !important; }
 
 .zweef {
@@ -100,7 +96,7 @@ html:not(.js) .alleen-js { display: none !important; }
   transition: transform 260ms cubic-bezier(.2, .7, .2, 1), visibility 0s linear 260ms;
 }
 .zweef[data-zichtbaar='true'] { visibility: visible; transform: none; transition: transform 260ms cubic-bezier(.2, .7, .2, 1); }
-@media (min-width: 900px) { .zweef { display: none; } }
+@media (min-width: 1500px) { .zweef { display: none; } }
 html:not(.js) .zweef { display: none; }
 
 .kop { background: var(--grond); position: relative; z-index: 20; }
@@ -108,9 +104,9 @@ html:not(.js) .zweef { display: none; }
 .kop__logo { display: block; flex: none; }
 .kop__logo img { height: 62px; width: auto; }
 .kop__nav { margin-left: auto; }
-.kop__nav ul { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
+.kop__nav ul { display: flex; gap: 14px; list-style: none; margin: 0; padding: 0; }
 .kop__nav a {
-  text-decoration: none; font-weight: 500; font-size: 1.0625rem; padding: 8px 0;
+  text-decoration: none; font-weight: 500; font-size: 0.9375rem; padding: 8px 0;
   background: linear-gradient(var(--goud), var(--goud)) 0 100% / 0 var(--lijn) no-repeat; transition: background-size 320ms ease;
 }
 .kop__nav a:hover, .kop__nav a:focus-visible, .kop__nav a[aria-current='page'] { background-size: 100% var(--lijn); }
@@ -118,7 +114,7 @@ html:not(.js) .zweef { display: none; }
 .kop__tel:hover { color: var(--navy); }
 .kop__menu { display: none; }
 @media (max-width: 1199px) { .kop__tel { display: none; } }
-@media (max-width: 899px) {
+@media (max-width: 1499px) {
   :root { --kop-h: 68px; }
   .kop__binnen { gap: 12px; }
   .kop__logo img { height: 42px; }
@@ -270,8 +266,10 @@ html:not(.js) .zweef { display: none; }
 
 .blok { padding-block: clamp(48px, 5vw, 80px); }
 .blok + .blok { border-top: 1px solid var(--deler); }
-.blok__kop { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; align-items: end; margin-bottom: 44px; }
-.blok__kop h2 { grid-column: 1 / span 7; }
+.blok__kop { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: end; margin-bottom: 44px; }
+.blok__kop h1, .blok__kop h2 { grid-column: 1 / span 7; min-width: 0; }
+.blok__kop:has(> p:nth-of-type(2)) { display: block; }
+.blok__kop:has(> p:nth-of-type(2)) > p { max-width: 75ch; margin-top: 16px; }
 .blok__intro { grid-column: 8 / span 5; color: var(--zacht); }
 @media (max-width: 1099px) {
   .blok__kop { display: block; margin-bottom: 32px; }
@@ -629,14 +627,12 @@ html:not(.js) .etmaal__balk { display: none; }
 }
 
 .held__bron a { color: inherit; text-underline-offset: 2px; }
-.kaart .label-voorbeeld { margin-top: 8px; color: color-mix(in srgb, var(--papier) 82%, var(--navy)); }
 
 .pagina-kop + .blok { padding-top: 0; }
 .pagina-kop__zin .lezer { margin-top: 24px; }
 .groot-tekst { font-size: clamp(1.1875rem, 0.95rem + 0.6vw, 1.5rem); line-height: 1.42; max-width: 36ch; }
 .groot-tekst + .groot-tekst { margin-top: 18px; }
 .kop-klein { font-size: clamp(1.375rem, 1.1rem + 0.7vw, 1.75rem); line-height: 1.15; letter-spacing: -0.012em; }
-.blok__voorbeeld { margin-top: 18px; }
 .blok__voet { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: 22px; }
 
 .kader-pand { margin: 0 0 0 auto; width: min(100%, 540px); }
@@ -670,7 +666,6 @@ html:not(.js) .etmaal__balk { display: none; }
 .koers__panelen { margin-top: 18px; padding-top: 22px; border-top: 1px solid var(--deler); }
 .koers__naam { font-size: 1.375rem; margin-bottom: 8px; }
 .koers__tekst { font-size: clamp(1.25rem, 0.95rem + 0.75vw, 1.75rem); line-height: 1.32; letter-spacing: -0.01em; max-width: 36ch; }
-.koers__paneel .label-voorbeeld { margin-top: 16px; }
 .koers__motto { max-width: none; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--deler); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--inkt); }
 .js .koers__kop, .js .koers__naam { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
 .js .koers__panelen { display: grid; }
@@ -814,3 +809,60 @@ html:not(.js) .koers__paneel + .koers__paneel { margin-top: 26px; }
   .kop__knop-kort { display: none; }
   .kop__knop-lang { display: inline; }
 }
+
+/* Rustige, leesbare presentatie van missie, visie en doel. */
+.koers__tekst { max-width: 60ch; line-height: 1.55; font-size: clamp(1.06rem, 0.98rem + 0.38vw, 1.28rem); }
+.koers__panelen { min-height: 13rem; }
+@media (max-width: 640px) { .koers__panelen { min-height: 0; } .koers__woorden { gap: .65rem; } }
+
+/* Eindcontrole: consistente grids, toegankelijke menu's en veilige tekstomloop. */
+html, body { max-width: 100%; }
+.raster, .duo, .duo__vak, .vakken, .vakken__vak, .blok__kop,
+.pagina-kop, .pagina-kop__tekst, .pagina-kop__zin, .kop__binnen,
+.twee, .twee__links, .twee__rechts { min-width: 0; }
+h1, h2, h3, p, li, dd { overflow-wrap: break-word; }
+p { line-height: 1.6; }
+.duo { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 4vw, 56px); align-items: start; }
+.duo > .duo__vak { grid-column: auto; min-width: 0; }
+.duo__vak > p { max-width: 66ch; }
+.blok__kop > .blok__intro { grid-column: 8 / -1; }
+.blok__kop > p:not(.blok__intro) { grid-column: 1 / -1; }
+.kop__nav > ul { align-items: center; gap: clamp(12px, 1.3vw, 24px); }
+.kop__groep { position: relative; }
+.kop__groep summary { cursor: pointer; font-size: .9375rem; font-weight: 600; list-style: none; padding: 12px 0; white-space: nowrap; }
+.kop__groep summary::-webkit-details-marker { display: none; }
+.kop__groep summary[data-huidig="true"] { color: var(--navy); text-decoration: underline; text-decoration-color: var(--goud); text-underline-offset: 7px; }
+.kop__groep summary::after { content: '⌄'; margin-left: 7px; }
+.kop__submenu { display: flex !important; flex-direction: column; gap: 0 !important; position: absolute; top: 100%; left: -20px; min-width: 230px; padding: 10px !important; background: var(--grond); border: 1px solid var(--deler); box-shadow: 0 12px 32px #14233822; z-index: 30; }
+.kop__groep details:not([open]) > .kop__submenu { display: none !important; }
+.kop__submenu a { display: block; padding: 12px !important; white-space: nowrap; }
+@media (max-width: 1499px) {
+  .kop__nav.open { max-height: calc(100dvh - var(--kop-h)); overflow-y: auto; }
+  .kop__nav > ul { align-items: stretch; }
+  .kop__groep summary { font-size: 1.2rem; padding: 14px 0; }
+  .kop__submenu { position: static; box-shadow: none; border: 0; border-left: 2px solid var(--deler); padding: 0 0 0 16px !important; min-width: 0; }
+  .kop__submenu a { font-size: 1rem !important; white-space: normal; }
+  .kop__groep summary[data-huidig="true"] { text-decoration-thickness: 2px; }
+}
+@media (max-width: 1099px) {
+  .duo { grid-template-columns: minmax(0, 1fr); }
+  .duo > .duo__vak { grid-column: 1 / -1; }
+  .blok__kop > .blok__intro { grid-column: 1 / -1; }
+}
+@media (max-width: 599px) {
+  .duo { gap: 32px; }
+  .blok__kop { margin-bottom: 28px; }
+  .contact > div { grid-template-columns: 1fr; gap: 4px; }
+  .knop { max-width: 100%; white-space: normal; text-align: center; }
+}
+
+/* In- en exclusiecriteria: rustige, goed leesbare opmaak */
+.criteria-pagina { max-width: 980px; margin-inline: auto; }
+.criteria-pagina h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.13; overflow-wrap: anywhere; }
+.criteria-pagina h2 { margin: 1.2rem 0 .8rem; line-height: 1.2; }
+.criteria-pagina h3 { margin: 1.3rem 0 .6rem; }
+.criteria-pagina p, .criteria-pagina li { max-width: 75ch; line-height: 1.75; overflow-wrap: break-word; }
+.criteria-pagina li { margin-block: .55rem; }
+.criteria-pagina ul { padding-left: 1.5rem; }
+.criteria-label { font-weight: 700; letter-spacing: .025em; }
+.criteria-noot { font-size: .9rem; opacity: .8; margin-top: 2rem; }
