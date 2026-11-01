@@ -5,7 +5,6 @@ import { Voorbeeld } from '@/components/Iconen';
 import { StrookFoto } from '@/components/Beelden';
 import { ROUTE } from '@/lib/beeld';
 import { aanmelden, haltes, openbaar, paginas } from '@/lib/gegevens';
-import { datum } from '@/lib/site';
 import { meta } from '@/lib/meta';
 import { kruimelsLd } from '@/lib/structured';
 
@@ -32,11 +31,12 @@ export default function Verwijzers() {
           {aanmelden.routeStatus === 'voorbeeld' && <Voorbeeld />}
         </div>
         <div className="kop-noot niet-printen">
-          <h2 className="kop-klein">Waarom geen formulier</h2>
+          <h2 className="kop-klein">Veilig contact opnemen</h2>
           <p>{aanmelden.geenFormulier}</p>
         </div>
       </PaginaKop>
 
+      <section className="band" aria-labelledby="doelgroep-verwijzers"><div className="raster"><div className="blok__kop"><h2 id="doelgroep-verwijzers">Voor welke jongeren?</h2><p className="blok__intro">Potens Cura biedt kleinschalig wonen met 24/7 aanwezige begeleiding aan jongeren van 16 tot 23 jaar die niet thuis of binnen hun netwerk kunnen wonen en ondersteuning nodig hebben bij hun ontwikkeling en zelfstandigheid.</p><p>Er kan sprake zijn van gedragsmatige, psychosociale of licht verstandelijke ondersteuningsvragen. Of een plaatsing passend en verantwoord is, bespreken we altijd individueel. De veiligheid, ondersteuningsbehoefte, dagstructuur en beschikbare deskundigheid wegen daarbij mee.</p><p>Bij de start stellen de jongere en de persoonlijk begeleider samen doelen op. Waar passend worden ouders, school, het netwerk en de verwijzer betrokken. Het perspectiefplan kijkt onder meer naar wonen, inkomen en school of dagbesteding en wordt waar nodig bijgesteld.</p><p>Potens Cura heeft momenteel geen gemeentelijk contract. Een afzonderlijke maatwerkafspraak kan met de gemeente worden besproken; de gemeente beslist over financiering en plaatsing.</p></div></div></section>
       <section className="band band--vlak" id="weg" aria-labelledby="weg-kop">
         <div className="raster">
           <div className="vakken">
@@ -45,7 +45,7 @@ export default function Verwijzers() {
               <div className="vakken__tekst">
                 <h2 className="vakken__groot">Tot 23 jaar</h2>
                 <p>{tot23.tekst}</p>
-                <p className="vakken__bron">Bron: <a href={tot23.link}>{tot23.bron}</a>, nagelezen op {datum(tot23.nagelezen)}.</p>
+                
               </div>
             </div>
             <div className="vakken__vak vakken__vak--tabel">

@@ -12,14 +12,14 @@ export function Huis() {
         <div className="huis__raster">
           <figure className="huis__foto">
             <Pand sizes="(min-width: 1100px) 440px, (min-width: 600px) 50vw, calc(100vw - 40px)" vierkantOpTelefoon />
-            <figcaption>Het pand in Arnhem</figcaption>
+            <figcaption>Sfeerbeeld ter illustratie; geen foto van de woonlocatie</figcaption>
           </figure>
           <div className="huis__vak huis__studio">
             <h2 id="huis-kop">Je eigen studio</h2>
             <dl className="huis__spec">
               <div><dt>Studio&apos;s</dt><dd>Vier, elk met een eigen keuken</dd></div>
               <div><dt>Gedeeld</dt><dd>Badkamer en toiletten</dd></div>
-              <div><dt>Wonen</dt><dd>(Semi)zelfstandig, met begeleiding</dd></div>
+              <div><dt>Wonen</dt><dd>Eigen plek met 24/7 begeleiding op locatie</dd></div>
             </dl>
             <Link className="pijl-link" href="/wonen">Zo woon je bij Potens Cura <Pijl /></Link>
           </div>
@@ -30,7 +30,7 @@ export function Huis() {
           </div>
           <div className="huis__vak huis__vak--goud">
             <h3 className="huis__groot">{doelgroep.leeftijdVan} tot {doelgroep.leeftijdTot} jaar</h3>
-            <p>Voor jongeren {doelgroep.situatie}, {doelgroep.problematiek}.</p>
+            <p>Voor jongeren die een stabiele woonomgeving, nabijheid en persoonlijke begeleiding nodig hebben.</p>
             <p>{doelgroep.waarom}</p>
           </div>
           <div className="huis__vak huis__werkwijze-kop">

@@ -43,7 +43,7 @@ export default function OverOns() {
               <h2 id="kwaliteit-kop">Kwaliteit</h2>
               <p>{partijen.skj.tekst}</p>
               <p>{skj.tekst}</p>
-              <p className="vakken__bron">Bron: <a href={skj.link}>{skj.bron}</a>, nagelezen op 30 oktober 2026.</p>
+              
             </section>
             <section className="vakken__vak vakken__vak--zeven" id="klachten" aria-labelledby="klachten-kop">
               <h2 id="klachten-kop">Vertrouwenspersoon en klachten</h2>

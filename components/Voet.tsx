@@ -32,7 +32,7 @@ export default function Voet() {
         <dl className="voet__partijen" aria-label="Kwaliteit en klachten">
           <div>
             <dt>Registratie</dt>
-            <dd><p className="voet__skj">Bij Potens Cura werken begeleiders die <a href={skj.link}>geregistreerd zijn bij SKJ</a>, het Kwaliteitsregister Jeugd.</p></dd>
+            <dd><p className="voet__skj">Binnen Potens Cura werken ook <a href={skj.link}>SKJ-geregistreerde professionals</a>. SKJ registreert individuele jeugdprofessionals, niet de organisatie.</p></dd>
           </div>
           <div>
             <dt>Klachtenregeling</dt>

@@ -9,12 +9,21 @@ const fout = (status: number, tekst: string) => Response.json({ fout: tekst }, {
 
 export async function POST(req: Request) {
   if (concept) return fout(404, 'Dit is een concept');
+  const lengte = Number(req.headers.get('content-length') || 0);
+  if (lengte > 18000) return fout(413, 'Bericht te groot');
+  const oorsprong = req.headers.get('origin');
+  const host = req.headers.get('host');
+  if (oorsprong && host) {
+    try { if (new URL(oorsprong).host !== host) return fout(403, 'Niet toegestaan'); }
+    catch { return fout(403, 'Niet toegestaan'); }
+  }
   let b: Record<string, unknown>;
   try {
     b = await req.json();
   } catch {
     return fout(400, 'Onleesbaar');
   }
+  if (!b || typeof b !== 'object') return fout(400, 'Ongeldig bericht');
   if (b.website) return Response.json({ ok: true });
 
   const velden: Veld[] = (Array.isArray(b.velden) ? b.velden : []).slice(0, 12).map((v: Record<string, unknown>) => ({

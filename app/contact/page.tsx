@@ -25,7 +25,7 @@ export default function Contact() {
         <dl className="contact">
           <div><dt>Telefoon</dt><dd><a href={telefoon.link}>{telefoon.tekst}</a></dd></div>
           <div><dt>E-mail</dt><dd><a href={email.link}>{email.tekst}</a></dd></div>
-          <div><dt>Adres</dt><dd>Johan de Wittlaan 75, 6828 XD Arnhem<br /><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Johan+de+Wittlaan+75%2C+6828+XD+Arnhem" target="_blank" rel="noopener noreferrer" aria-label="Open routebeschrijving naar Potens Cura in Google Maps (opent in een nieuw tabblad)">Bekijk route in Google Maps ↗</a></dd></div>
+          <div><dt>Adres</dt><dd>Johan de Wittlaan 75, 6828 XD Arnhem<br /><a href="https://www.google.com/maps/dir/?api=1&destination=Johan+de+Wittlaan+75%2C+6828+XD+Arnhem" target="_blank" rel="noopener noreferrer" aria-label="Open routebeschrijving naar Potens Cura in Google Maps (opent in een nieuw tabblad)">Bekijk route in Google Maps ↗</a></dd></div>
         </dl>
         {(telefoon.voorbeeld || email.voorbeeld) && <Voorbeeld className="blok__voorbeeld" />}
       </PaginaKop>
@@ -46,7 +46,7 @@ export default function Contact() {
             <Formulier
               id="bericht-formulier"
               knop="Verstuur je bericht"
-              letOp="Zet geen gegevens over de gezondheid of de situatie van een jongere in dit formulier. Een aanmelding gaat per telefoon of beveiligde mail."
+              letOp="Zet geen gegevens over de gezondheid of de situatie van een jongere in dit formulier. Neem voor een aanmelding eerst telefonisch contact op om een veilige overdracht af te spreken."
               velden={[
                 { naam: 'naam', label: 'Je naam', verplicht: true, autocomplete: 'name' },
                 { naam: 'organisatie', label: 'Organisatie' },
