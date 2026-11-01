@@ -35,10 +35,10 @@ export const plaats: Feit = { waarde: 'Arnhem', status: 'bevestigd', bron: BEVES
 export const doelgroep = {
   leeftijdVan: 16,
   leeftijdTot: 23,
-  tekst: 'jongeren van 16 tot 23 jaar',
-  situatie: 'die niet thuis kunnen wonen',
-  problematiek: 'met psychische, sociale of verstandelijke problematiek',
-  waarom: 'De woonvorm is bedoeld voor jongeren die toe zijn aan (semi)zelfstandig wonen in een eigen studio.',
+  tekst: 'jongeren van 16 tot en met 23 jaar',
+  situatie: 'die een stabiele woonplek en persoonlijke begeleiding nodig hebben',
+  problematiek: 'en willen werken aan hun ontwikkeling, eigen regie en zelfstandigheid',
+  waarom: 'Potens Cura is er voor jongeren die niet (meer) thuis kunnen wonen en baat hebben bij een kleinschalige woonomgeving met begeleiding op maat. Samen werken we aan structuur, dagelijkse vaardigheden en een haalbaar toekomstperspectief.',
   status: 'bevestigd' as Status,
   bron: `${BEVESTIGD}; vanaf 16 jaar, de situatie en de problematiek: ${PC2}`,
 };
@@ -150,7 +150,7 @@ export const openbaar = {
 };
 
 export const feiten = [
-  { label: 'Voor wie', waarde: '16 tot 23 jaar', toelichting: 'jongeren die niet thuis kunnen wonen' },
+  { label: 'Voor wie', waarde: '16 tot en met 23 jaar', toelichting: 'jongeren die niet thuis kunnen wonen' },
   { label: 'Wonen', waarde: 'Vier studio\'s', toelichting: 'elk met een eigen keuken' },
   { label: 'Begeleiding', waarde: '24 uur per dag', toelichting: 'zeven dagen per week' },
   { label: 'Plaats', waarde: 'Arnhem', toelichting: '(semi)zelfstandig wonen' },
@@ -232,7 +232,7 @@ export interface Vraag {
 }
 
 export const vragen: Vraag[] = [
-  { sleutel: 'voor-wie', lezer: 'jongere', vraag: 'Voor wie is Potens Cura?', feit: `Potens Cura in Arnhem is er voor ${doelgroep.tekst} ${doelgroep.situatie}, ${doelgroep.problematiek}.`, uitleg: `Je woont (semi)zelfstandig in een eigen studio, met ${begeleiding.naam}. Omdat je niet in een groep woont, is Potens Cura er vanaf ${doelgroep.leeftijdVan} jaar.`, status: 'bevestigd' },
+  { sleutel: 'voor-wie', lezer: 'jongere', vraag: 'Voor wie is Potens Cura?', feit: `Potens Cura in Arnhem is er voor ${doelgroep.tekst} ${doelgroep.situatie}. De begeleiding helpt hen stap voor stap groeien in zelfstandigheid en eigen regie.`, uitleg: `Je woont (semi)zelfstandig in een eigen studio, met ${begeleiding.naam}. Omdat je niet in een groep woont, is Potens Cura er vanaf ${doelgroep.leeftijdVan} jaar.`, status: 'bevestigd' },
   { sleutel: 'eigen-studio', lezer: 'jongere', vraag: 'Heb ik een eigen kamer?', feit: 'Ja, bij Potens Cura woon je in een eigen studio met een eigen keuken.', uitleg: 'Er zijn vier studio\'s. Badkamer en toiletten deel je met de andere jongeren.', status: 'bevestigd' },
   { sleutel: 'nacht', lezer: 'jongere', vraag: 'Is er \'s nachts ook iemand?', feit: `Ja, Potens Cura biedt ${begeleiding.naam}: dag en nacht, zeven dagen per week.`, uitleg: 'Ook \'s avonds, in het weekend en op feestdagen is er begeleiding.', status: 'bevestigd' },
   { sleutel: 'na-18', lezer: 'jongere', vraag: 'Loopt jeugdhulp door als ik 18 word?', feit: 'Jeugdhulp kan na je 18e doorlopen tot je 23e, als de hulp voor je 18e begon of als voor je 18e is besloten dat je hem nodig hebt.', uitleg: 'Dat staat in de Jeugdwet, artikel 1.1. Welke wet of regeling voor jouw situatie geldt, beoordeelt de gemeente.', status: 'bevestigd' },
@@ -265,9 +265,10 @@ export const lezers = {
 } satisfies Record<Lezer, { knop: string; hint: string; volgorde: string[]; stap: string }>;
 
 export const paginas = {
-  home: { pad: '/', title: 'Kleinschalig wonen voor jongeren in Arnhem | Potens Cura', description: 'Kleinschalig wonen in Arnhem voor jongeren van 16 tot 23 jaar die niet thuis kunnen wonen. Vier eigen studio’s, persoonlijke begeleiding en werken aan zelfstandigheid.', h1: 'Een eigen plek. Ruimte om te groeien.' },
-  wonen: { pad: '/wonen', title: 'Wonen in een eigen studio in Arnhem | Potens Cura', description: 'Ontdek de kleinschalige woonvorm van Potens Cura in Arnhem: vier eigen studio’s met keuken, gedeelde sanitaire voorzieningen en persoonlijke begeleiding voor jongeren van 16 tot 23 jaar.', h1: 'Wonen in je eigen studio in Arnhem' },
-  verwijzers: { pad: '/verwijzers', title: 'Een jongere aanmelden in Arnhem | Potens Cura', description: 'Informatie voor verwijzers over de doelgroep, begeleiding, financiering en het aanmelden van een jongere bij Potens Cura in Arnhem.', h1: 'Zo meld je een jongere aan' },
+  home: { pad: '/', title: 'Kleinschalig wonen voor jongeren in Arnhem | Potens Cura', description: 'Een kleinschalige woonplek in Arnhem voor jongeren van 16 tot en met 23 jaar die begeleiding nodig hebben bij hun ontwikkeling naar zelfstandigheid. Vier eigen studio’s en persoonlijke begeleiding.', h1: 'Een eigen plek. Ruimte om te groeien.' },
+  wonen: { pad: '/wonen', title: 'Wonen in een eigen studio in Arnhem | Potens Cura', description: 'Ontdek de kleinschalige woonvorm van Potens Cura in Arnhem: vier eigen studio’s met keuken, gedeelde sanitaire voorzieningen en persoonlijke begeleiding voor jongeren van 16 tot en met 23 jaar.', h1: 'Wonen in je eigen studio in Arnhem' },
+  verwijzers: { pad: '/verwijzers', title: 'Een jongere aanmelden in Arnhem | Potens Cura', description: 'Informatie voor verwijzers over de doelgroep, plaatsingscriteria, begeleiding, financiering en aanmelding bij Potens Cura in Arnhem.', h1: 'Zo meld je een jongere aan' },
+  criteria: { pad: '/in-en-exclusiecriteria', title: 'Inclusie- en exclusiecriteria | Potens Cura', description: 'Lees wanneer kleinschalig wonen bij Potens Cura passend kan zijn en wanneer een andere zorgvorm beter aansluit.', h1: 'Wanneer past wonen bij Potens Cura?' },
   werken: { pad: '/werken-bij', title: 'Werken als begeleider in Arnhem | Potens Cura', description: 'Werken bij Potens Cura betekent bijdragen aan een kleinschalige woonplek voor jongeren in Arnhem. Lees over onze aanpak en laat je interesse weten.', h1: 'Begeleider worden in Arnhem' },
   over: { pad: '/over-ons', title: 'Over Potens Cura: kleinschalig wonen in Arnhem', description: 'Lees over Potens Cura, onze uitgangspunten, persoonlijke begeleiding en de kleinschalige woonvorm voor jongeren in Arnhem.', h1: 'Over Potens Cura in Arnhem' },
   contact: { pad: '/contact', title: 'Contact met Potens Cura in Arnhem', description: 'Bel of mail Potens Cura in Arnhem voor een aanmelding, een vraag, een sollicitatie of een klacht.', h1: 'Bel of mail ons' },

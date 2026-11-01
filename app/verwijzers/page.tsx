@@ -39,7 +39,7 @@ export default function Verwijzers() {
       </section>
       <section className="band band--navy" aria-labelledby="verwijzers-doelgroep">
         <div className="raster verwijzers-info">
-          <div><p className="home-overline home-overline--licht">Doelgroep</p><h2 id="verwijzers-doelgroep">Voor wie is Potens Cura?</h2><p>Jongeren van {doelgroep.leeftijdVan} tot {doelgroep.leeftijdTot} jaar die niet thuis kunnen wonen, met psychische, sociale of verstandelijke problematiek. De woonvorm is bedoeld voor jongeren die toe zijn aan (semi)zelfstandig wonen in een eigen studio.</p></div>
+          <div><p className="home-overline home-overline--licht">Doelgroep</p><h2 id="verwijzers-doelgroep">Voor wie is Potens Cura?</h2><p>{doelgroep.waarom}</p><p>We kijken naar de jongere als persoon: diens mogelijkheden, ondersteuningsvraag, motivatie, veiligheid en de mate waarin onze woonvorm aansluit.</p><p><Link className="pijl-link" href="/in-en-exclusiecriteria">Bekijk de inclusie- en exclusiecriteria</Link></p></div>
           <div><p className="home-overline home-overline--licht">Financiering</p><h2>Afstemming per jongere</h2><p>{financiering.antwoord} {financiering.gemeente}</p><p>{aanmelden.beschikbaarheid}</p></div>
         </div>
       </section>

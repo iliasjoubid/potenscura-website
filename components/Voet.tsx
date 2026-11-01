@@ -7,6 +7,7 @@ const paginas = [
   { pad: '/werken-bij', naam: 'Werken bij' },
   { pad: '/over-ons', naam: 'Over ons' },
   { pad: '/vragen', naam: 'Vragen' },
+  { pad: '/in-en-exclusiecriteria', naam: 'Plaatsingscriteria' },
   { pad: '/contact', naam: 'Contact' },
   { pad: '/privacy', naam: 'Privacy' },
   { pad: '/klachten', naam: 'Klachten' },

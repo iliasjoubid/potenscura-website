@@ -3,9 +3,10 @@ import { datum, email, hoofdletter, telefoon } from '@/lib/site';
 import { Voorbeeld } from './Iconen';
 import PrintKnop from './PrintKnop';
 
-export const kaartRijen: [string, string][] = [
-  ['Voor wie', `${hoofdletter(doelgroep.tekst)} ${doelgroep.situatie}, ${doelgroep.problematiek}.`],
+export const kaartRijen: [string, React.ReactNode][] = [
+  ['Voor wie', `${hoofdletter(doelgroep.tekst)} ${doelgroep.situatie}, die met passende ondersteuning willen groeien in zelfstandigheid en eigen regie.`],
   ['Voorwaarde', `${dagbesteding.kort}.`],
+  ['Plaatsing', <><a href="/in-en-exclusiecriteria">Bekijk de inclusie- en exclusiecriteria</a>. Iedere aanmelding wordt individueel beoordeeld.</>],
   ['Wonen', 'Vier studio\'s met eigen keuken, (semi)zelfstandig en niet in een groep. Badkamer en toiletten gedeeld.'],
   ['Begeleiding', `${hoofdletter(begeleiding.waarde)}.`],
   ['Werkwijze', 'Vertrouwensband, begeleiding op maat en een perspectiefplan met jongere en netwerk, op vaste momenten geëvalueerd.'],

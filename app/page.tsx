@@ -82,7 +82,7 @@ export default function Home() {
             <h2 id="home-doelgroep-kop">Een plek voor jongeren die niet thuis kunnen wonen.</h2>
           </div>
           <div className="home-doelgroep__tekst">
-            <p>Potens Cura is er voor jongeren van {doelgroep.leeftijdVan} tot {doelgroep.leeftijdTot} jaar met psychische, sociale of verstandelijke problematiek, die toe zijn aan (semi)zelfstandig wonen met begeleiding.</p>
+            <p>Potens Cura is er voor jongeren van {doelgroep.leeftijdVan} tot en met {doelgroep.leeftijdTot} jaar die niet thuis kunnen wonen en baat hebben bij een kleinschalige woonplek met persoonlijke begeleiding. Samen werken we aan structuur, dagelijkse vaardigheden en een toekomst met meer zelfstandigheid en eigen regie.</p>
             <p>Een passende daginvulling, zoals school of werk, hoort bij het traject. Tijdens een kennismaking bespreken we samen wat de jongere nodig heeft en of onze woonvorm passend is.</p>
             <Link className="pijl-link" href="/vragen">Bekijk veelgestelde vragen <span aria-hidden="true">→</span></Link>
           </div>

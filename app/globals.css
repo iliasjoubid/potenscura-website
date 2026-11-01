@@ -928,3 +928,19 @@ html:not(.js) .koers__paneel + .koers__paneel { margin-top: 26px; }
 .band--navy .knop--rand-licht { background: transparent; color: var(--papier); border-color: color-mix(in srgb, var(--papier) 70%, transparent); }
 .band--navy .knop--rand-licht:hover { background: var(--papier); color: var(--navy); }
 .home-verwijzers { --zacht: color-mix(in srgb, var(--papier) 76%, var(--navy)); }
+
+
+/* Plaatsingscriteria: rustige, goed scanbare tweekolomsopmaak */
+.criteria-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 36px; }
+.criteria-paneel { background: var(--navy); color: var(--papier); border-radius: 4px; padding: clamp(24px, 3vw, 42px); }
+.criteria-paneel--licht { background: var(--vlak); color: var(--inkt); }
+.criteria-paneel h2 { font-size: clamp(1.45rem, 1.2rem + 1vw, 2rem); line-height: 1.15; max-width: 18ch; margin: 0 0 14px; }
+.criteria-paneel > p:not(.home-overline) { margin-bottom: 22px; max-width: 58ch; }
+.criteria-paneel ol { list-style: none; padding: 0; margin: 0; }
+.criteria-paneel li { display: grid; grid-template-columns: 34px 1fr; gap: 13px; padding: 18px 0; border-top: 1px solid color-mix(in srgb, currentColor 20%, transparent); }
+.criteria-paneel li > span { color: var(--goud); font-size: .85rem; font-variant-numeric: tabular-nums; padding-top: 3px; }
+.criteria-paneel li h3 { font-size: 1.05rem; margin: 0 0 6px; }
+.criteria-paneel li p { margin: 0; font-size: .94rem; line-height: 1.6; }
+.criteria-noot { max-width: 90ch; margin: 24px 0 0; padding: 18px 20px; border-left: 3px solid var(--goud); background: var(--vlak); }
+.criteria-acties { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+@media (max-width: 760px) { .criteria-grid { grid-template-columns: 1fr; } .criteria-paneel { padding: 24px 20px; } }
