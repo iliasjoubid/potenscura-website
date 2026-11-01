@@ -14,8 +14,9 @@ De site staat nu als concept: hij is niet te vinden in Google, de voet zegt dat 
 
 Eerst nalezen, want live staat alles in Google:
 
-- Alle teksten. Blokken met het label Voorbeeld (de weg van aankomst tot eigen benen, wat je doet per moment op Werken bij, een dag op Wonen, de route op Voor verwijzers) en de missie en visie (label Voorstel) moet Potens Cura nog vaststellen. Klopt een tekst, haal dan het label weg (zie Zelf aanpassen).
-- De foto van het pand: mag die online? Zo niet, vervang hem.
+- Alle teksten. Blokken met het label Voorbeeld (de weg van aankomst tot eigen benen, wat je doet per moment op Werken bij, een dag op Wonen), de missie en visie (label Voorstel) en de uitleg van de werkwijze op Over ons (label Uitleg: voorstel) moet Potens Cura nog vaststellen. Klopt een tekst, haal dan het label weg (zie Zelf aanpassen).
+- De foto van het pand staat op de home met akkoord van de eigenaar. Het adres staat bewust nergens op de site; zet het er alleen bij als Potens Cura dat wil.
+- Welke dienst voor beveiligde mail Potens Cura gebruikt, staat nog niet op de site. Vul die in bij aanmelden als hij bekend is.
 - De privacypagina: vul aan hoe lang berichten uit de formulieren bewaard blijven en wie verantwoordelijk is.
 - De formulieren: stel Resend in (zie Formulieren). Zonder Resend zegt een formulier na versturen dat het niet lukt, met het e-mailadres en het telefoonnummer erbij.
 
@@ -52,7 +53,7 @@ Een wijziging op GitHub (ook in de browser, met het potloodje bij een bestand) z
 - Feiten, vragen en antwoorden, paginatitels en omschrijvingen voor Google: `lib/gegevens.ts`. Elke pagina en de gegevens voor zoekmachines lezen daaruit, zodat alles overal gelijk blijft.
 - Telefoonnummer en e-mailadres: `lib/site.ts`.
 - Teksten per pagina: `app/page.tsx` (de home) en `app/<pagina>/page.tsx`, bijvoorbeeld `app/wonen/page.tsx`.
-- Het label Voorbeeld weghalen: in `components/Weg.tsx`, `components/Dienst.tsx`, `components/Etmaal.tsx` en `app/verwijzers/page.tsx`. Het label Voorstel bij missie en visie verdwijnt als in `lib/gegevens.ts` bij `koers` de status `bevestigd` wordt.
+- Het label Voorbeeld weghalen: in `components/Weg.tsx`, `components/Dienst.tsx` en `components/Etmaal.tsx`. Het label Uitleg: voorstel bij de werkwijze staat in `components/Blokken.tsx`. Het label Voorstel bij missie en visie verdwijnt als in `lib/gegevens.ts` bij `koers` de status `bevestigd` wordt.
 - Foto's: welke foto waar staat, met maker, bron en licentie, staat in `lib/beeld.ts`. De bestanden staan in `public/beeld`, elke foto in meerdere breedtes als .avif en .webp. Een nieuwe foto zet je in dezelfde namen en breedtes.
 - Apart bijwerken als feiten veranderen: `public/llms.txt` (de feiten voor AI-zoekmachines, gewone tekst) en `public/aanmeldkaart-potens-cura.pdf` (maak die opnieuw door op Voor verwijzers de kaart te printen als pdf).
 - Lokaal bekijken: installeer Node.js 20 of nieuwer, dan `npm install` en `npm run dev`, en open http://localhost:3000.

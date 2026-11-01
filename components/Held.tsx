@@ -14,7 +14,7 @@ export default function Held() {
       <div className="held__tekst">
         <h1 id="kernzin" className="kernzin">Wonen met&nbsp;perspectief.</h1>
         <p className="held__zin">Kleinschalig wonen in een eigen studio, met {begeleiding.naam}. Voor {doelgroep.tekst} in Arnhem.</p>
-        <Link className="knop knop--goud held__knop" href="/wonen">Zo woon je hier</Link>
+        <Link className="knop knop--goud held__knop" href="/wonen">Bekijk de studio&apos;s</Link>
       </div>
     </section>
   );

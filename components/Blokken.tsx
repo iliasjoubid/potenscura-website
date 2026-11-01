@@ -7,37 +7,21 @@ import { Pand } from './Beelden';
 
 export function Huis() {
   return (
-    <section className="huis" aria-labelledby="huis-kop">
-      <div className="raster">
-        <div className="huis__raster">
-          <figure className="huis__foto">
-            <Pand sizes="(min-width: 1100px) 440px, (min-width: 600px) 50vw, calc(100vw - 40px)" vierkantOpTelefoon />
-            <figcaption>Het pand in Arnhem</figcaption>
-          </figure>
-          <div className="huis__vak huis__studio">
-            <h2 id="huis-kop">Je eigen studio</h2>
-            <dl className="huis__spec">
-              <div><dt>Studio&apos;s</dt><dd>Vier, elk met een eigen keuken</dd></div>
-              <div><dt>Gedeeld</dt><dd>Badkamer en toiletten</dd></div>
-              <div><dt>Wonen</dt><dd>(Semi)zelfstandig, met begeleiding</dd></div>
-            </dl>
-            <Link className="pijl-link" href="/wonen">Zo woon je bij Potens Cura <Pijl /></Link>
-          </div>
-          <div className="huis__vak huis__vak--navy">
-            <h3 className="huis__groot">24 uur per dag</h3>
-            <p>{begeleiding.zin}</p>
-            <Link className="pijl-link" href="/wonen#dag">Zo ziet een dag eruit <Pijl /></Link>
-          </div>
-          <div className="huis__vak huis__vak--goud">
-            <h3 className="huis__groot">{doelgroep.leeftijdVan} tot {doelgroep.leeftijdTot} jaar</h3>
-            <p>Voor jongeren {doelgroep.situatie}, {doelgroep.problematiek}.</p>
-            <p>{doelgroep.waarom}</p>
-          </div>
-          <div className="huis__vak huis__werkwijze-kop">
-            <h3>Zo werken we</h3>
-            <p>{intake.zin}</p>
-          </div>
-          <WerkwijzeLijst className="huis__werkwijze" kort />
+    <section className="huis" id="studio" aria-labelledby="huis-kop">
+      <div className="raster huis__binnen">
+        <figure className="huis__foto">
+          <Pand sizes="(min-width: 1100px) 430px, (min-width: 600px) 40vw, calc(100vw - 40px)" vierkantOpTelefoon />
+          <figcaption className="foto-bron">Het pand van Potens Cura in Arnhem.</figcaption>
+        </figure>
+        <div className="huis__tekst">
+          <h2 id="huis-kop">Je eigen studio in Arnhem</h2>
+          <p className="groot-tekst">Vier studio&apos;s, elk met een eigen keuken. Je woont (semi)zelfstandig, niet in een groep.</p>
+          <dl className="doorsnede">
+            <div><dt>Van jou</dt><dd><span>Studio</span><span>Keuken</span></dd></div>
+            <div><dt>Gedeeld</dt><dd><span>Badkamer</span><span>Toiletten</span></dd></div>
+          </dl>
+          <p className="huis__onder">Begeleiding is er {begeleiding.waarde}. Voor {doelgroep.tekst} {doelgroep.situatie}, {doelgroep.problematiek}.</p>
+          <Link className="pijl-link" href="/wonen">Meer over wonen <Pijl /></Link>
         </div>
       </div>
     </section>
@@ -67,7 +51,10 @@ export function Werkwijze({ kop = 'Zo werken we' }: { kop?: string }) {
           <p>{intake.zin}</p>
           <p className="werkwijze__methoden">{methodieken.zin}</p>
         </div>
-        <WerkwijzeLijst />
+        <div className="werkwijze__rechts">
+          <WerkwijzeLijst />
+          <Voorbeeld className="werkwijze__label" tekst="Uitleg: voorstel" />
+        </div>
       </div>
     </section>
   );
@@ -83,12 +70,9 @@ export function Slot({ grond = 'navy' }: { grond?: 'navy' | 'vlak' }) {
         </div>
         <dl className="slot__contact">
           <div><dt>Telefoon</dt><dd><a href={telefoon.link}>{telefoon.tekst}</a></dd></div>
-          <div>
-            <dt>E-mail</dt><dd>{email.tekst}</dd>
-            {(telefoon.voorbeeld || email.voorbeeld) && <dd className="slot__label"><Voorbeeld /></dd>}
-          </div>
+          <div><dt>E-mail</dt><dd><a href={email.link}>{email.tekst}</a></dd></div>
+          {(telefoon.voorbeeld || email.voorbeeld) && <div className="slot__label"><Voorbeeld /></div>}
         </dl>
-        <a className="knop knop--goud" href={email.link}>Mail ons</a>
       </div>
     </section>
   );

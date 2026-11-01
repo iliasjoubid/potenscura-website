@@ -50,7 +50,7 @@ export default function OverOns() {
               <h2 id="klachten-kop">Vertrouwenspersoon en klachten</h2>
               <p>Wil je hulp van iemand die niet bij Potens Cura werkt? Een vertrouwenspersoon van Jeugdstem of Adviespunt Zorgbelang helpt je gratis en onafhankelijk.</p>
               <p>Potens Cura is aangesloten bij {partijen.klachten.naam}. Daar zoekt een onafhankelijke klachtenfunctionaris met jou en met ons naar een oplossing. Een klacht indienen kost je niets.</p>
-              <Link className="pijl-link" href="/klachten">Zo dien je een klacht in <Pijl /></Link>
+              <Link className="pijl-link" href="/klachten">Een klacht indienen <Pijl /></Link>
             </section>
           </div>
         </div>

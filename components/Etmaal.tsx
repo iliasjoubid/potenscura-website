@@ -11,7 +11,7 @@ export type Dagdeel = { deel: string; van: number; jongere: string; ouder: strin
 
 const GROND = ['papier', 'papier', 'vlak', 'navy'] as const;
 
-export default function EenDag({ delen, kop, intro, naast, fotos }: { delen: Dagdeel[]; kop: string; intro: string; naast?: boolean; fotos?: Foto[] }) {
+export default function EenDag({ delen, kop, intro, naast, fotos, strook, children }: { delen: Dagdeel[]; kop: string; intro: string; naast?: boolean; fotos?: Foto[]; strook?: boolean; children?: React.ReactNode }) {
   const [actief, zetActief] = useState(0);
   const [alle, laadAlle] = useLaterLaden();
   const gekozen = useRef(false);
@@ -39,6 +39,49 @@ export default function EenDag({ delen, kop, intro, naast, fotos }: { delen: Dag
     kies(nieuw, true);
   };
 
+  const balk = (
+    <div className="etmaal">
+      <div className="etmaal__balk" role="tablist" aria-label="Een dag van 24 uur" onKeyDown={toetsen} onPointerEnter={laadAlle} onFocus={laadAlle} onTouchStart={laadAlle}>
+        {delen.map((d, i) => (
+          <button
+            key={d.deel}
+            ref={(el) => { knoppen.current[i] = el; }}
+            className="etmaal__deel" role="tab" type="button" id={`dag-${i}`} aria-controls={`dag-paneel-${i}`}
+            aria-selected={i === actief} tabIndex={i === actief ? 0 : -1}
+            onClick={() => kies(i)}
+          >
+            {d.deel}
+          </button>
+        ))}
+      </div>
+      <div className="etmaal__panelen">
+        {delen.map((d, i) => (
+          <div key={d.deel} className="etmaal__paneel" role="tabpanel" id={`dag-paneel-${i}`} aria-labelledby={`dag-${i}`} tabIndex={0} data-actief={i === actief}>
+            <h3 className="etmaal__naam">{d.deel}</h3>
+            <LezerTekst className="etmaal__tekst" jongere={d.jongere} ouder={d.ouder} />
+          </div>
+        ))}
+      </div>
+      <Voorbeeld className="etmaal__voorbeeld" />
+    </div>
+  );
+
+  if (strook && fotos) {
+    return (
+      <section className="dag-strook" id="dag" data-grond={GROND[actief] ?? 'papier'} aria-labelledby="pagina-h1">
+        <div className="raster dag-strook__kop">{children}</div>
+        <Wisselfoto fotos={fotos} actief={actief} alle={alle} strook voorrang sizes="100vw" className="dag-strook__foto" />
+        <div className="raster dag-strook__onder">
+          <div className="een-dag__kop">
+            <h2>{kop}</h2>
+            <p>{intro}</p>
+          </div>
+          {balk}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <div className={`vakken__vak een-dag${naast ? ' een-dag--naast' : ''}${fotos ? ' een-dag--foto' : ''}`} id="dag" data-grond={GROND[actief] ?? 'papier'}>
       {fotos && <Wisselfoto fotos={fotos} actief={actief} alle={alle} sizes="(min-width: 1100px) 26vw, (min-width: 600px) 50vw, calc(100vw - 40px)" className="een-dag__foto" />}
@@ -46,30 +89,7 @@ export default function EenDag({ delen, kop, intro, naast, fotos }: { delen: Dag
         <h2>{kop}</h2>
         <p>{intro}</p>
       </div>
-      <div className="etmaal">
-        <div className="etmaal__balk" role="tablist" aria-label="Een dag van 24 uur" onKeyDown={toetsen} onPointerEnter={laadAlle} onFocus={laadAlle} onTouchStart={laadAlle}>
-          {delen.map((d, i) => (
-            <button
-              key={d.deel}
-              ref={(el) => { knoppen.current[i] = el; }}
-              className="etmaal__deel" role="tab" type="button" id={`dag-${i}`} aria-controls={`dag-paneel-${i}`}
-              aria-selected={i === actief} tabIndex={i === actief ? 0 : -1}
-              onClick={() => kies(i)}
-            >
-              {d.deel}
-            </button>
-          ))}
-        </div>
-        <div className="etmaal__panelen">
-          {delen.map((d, i) => (
-            <div key={d.deel} className="etmaal__paneel" role="tabpanel" id={`dag-paneel-${i}`} aria-labelledby={`dag-${i}`} tabIndex={0} data-actief={i === actief}>
-              <h3 className="etmaal__naam">{d.deel}</h3>
-              <LezerTekst className="etmaal__tekst" jongere={d.jongere} ouder={d.ouder} />
-            </div>
-          ))}
-        </div>
-        <Voorbeeld className="etmaal__voorbeeld" />
-      </div>
+      {balk}
     </div>
   );
 }

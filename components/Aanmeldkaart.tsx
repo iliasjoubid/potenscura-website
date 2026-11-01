@@ -21,7 +21,6 @@ export default function Aanmeldkaart({ groot = false }: { groot?: boolean }) {
     ['Financiering', 'Jeugdwet of Wmo'],
     ['Voorwaarde', dagbesteding.kort],
     ['Plek', aanmelden.beschikbaarheid.replace(/\.$/, '')],
-    ['Aanmelden', 'Bellen of mailen, dan een intakegesprek'],
   ];
   const contact: [string, React.ReactNode] = ['Contact', (
     <>

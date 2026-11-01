@@ -1,5 +1,5 @@
 import JsonLd from '@/components/JsonLd';
-import { PaginaKop } from '@/components/Blokken';
+import { PaginaKop, Slot } from '@/components/Blokken';
 import { KopFoto } from '@/components/Beelden';
 import { PRIVACY } from '@/lib/beeld';
 import { concept, paginas } from '@/lib/gegevens';
@@ -29,8 +29,8 @@ export default function Privacy() {
               )}
             </section>
             <section className="vakken__vak vakken__vak--tekst" aria-labelledby="privacy-aanmelden">
-              <h2 id="privacy-aanmelden">Aanmelden gaat niet via de website</h2>
-              <p>Gegevens over de gezondheid en de situatie van een jongere zijn bijzondere persoonsgegevens. Die horen niet in een gewoon webformulier. Bel of mail ons, en stuur stukken via beveiligde mail.</p>
+              <h2 id="privacy-aanmelden">Geen gezondheid in een formulier</h2>
+              <p>Gegevens over de gezondheid en de situatie van een jongere zijn bijzondere persoonsgegevens. Zet ze daarom niet in een formulier op deze website. Wil je een jongere aanmelden, bel of mail ons dan, en stuur stukken via beveiligde mail.</p>
             </section>
             <section className="vakken__vak vakken__vak--tekst" aria-labelledby="privacy-rechten">
               <h2 id="privacy-rechten">Je rechten</h2>
@@ -39,6 +39,7 @@ export default function Privacy() {
           </div>
         </div>
       </section>
+      <Slot />
       <JsonLd data={kruimelsLd('Privacy', p.pad)} />
     </>
   );

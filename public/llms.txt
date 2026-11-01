@@ -13,7 +13,7 @@
 - Methodieken: presentiebenadering, systeemgericht werken, cultuursensitief werken.
 - Financiering: De zorg van Potens Cura wordt vergoed vanuit de Jeugdwet of de Wmo. Potens Cura heeft geen contract met alle gemeenten. Heeft jouw gemeente geen contract, dan kan de zorg in veel gevallen toch starten via een maatwerkovereenkomst. Je gemeente beoordeelt dit per situatie.
 - Plaats: Arnhem.
-- Aanmelden: Je meldt een jongere aan door Potens Cura te bellen of te mailen. Stukken met persoonsgegevens gaan via beveiligde mail, niet via een webformulier.
+- Aanmelden: Je meldt een jongere aan door Potens Cura te bellen of te mailen.
 - Beschikbaarheid: Bel voor de actuele stand.
 - Werktijden: Begeleiders bij Potens Cura werken vaak onregelmatig, want er is 24-uursbegeleiding, zeven dagen per week.
 - Solliciteren: met het formulier op de pagina Werken bij.
@@ -41,7 +41,7 @@
 - Wat is een perspectiefplan? In het perspectiefplan staan de doelen van de jongere, opgesteld samen met de jongere en het netwerk.
 - Wat is het doel van de begeleiding? Het doel van de begeleiding bij Potens Cura is dat jongeren zelfredzamer worden, meer eigen regie krijgen en uiteindelijk zelfstandig meedoen in de samenleving.
 - Wordt onze familie betrokken? Ja, Potens Cura werkt systeemgericht: ouders, familie en netwerk horen bij de begeleiding.
-- Houden jullie rekening met onze cultuur en ons geloof? Ja, Potens Cura werkt cultuursensitief: achtergrond, geloof en taal tellen mee in de begeleiding.
+- Houden jullie rekening met onze cultuur en ons geloof? Ja, Potens Cura werkt cultuursensitief.
 - Wat betekent een registratie bij SKJ? Bij Potens Cura werken begeleiders die geregistreerd zijn bij SKJ, het Kwaliteitsregister Jeugd.
 - Hoe meld ik een jongere aan? Je meldt een jongere aan door Potens Cura te bellen of te mailen.
 - Hoe gaat een plaatsing? Voor een plaatsing voert Potens Cura eerst een intakegesprek, om te kijken of het wonen en de begeleiding bij de jongere passen.
@@ -50,4 +50,4 @@
 - Heeft een jongere een dagbesteding nodig? Ja, wie bij Potens Cura woont, heeft een passende dagbesteding nodig.
 - Wie betaalt de zorg? De zorg van Potens Cura wordt vergoed vanuit de Jeugdwet of de Wmo.
 
-Bijgewerkt op 2026-10-30.
+Bijgewerkt op 2026-11-01.

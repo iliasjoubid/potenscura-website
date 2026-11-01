@@ -11,8 +11,9 @@ export interface Feit<T = string> {
 const BEVESTIGD = 'Potens Cura, 29-10-2026';
 const PC = 'Potens Cura, 30-10-2026';
 const PC2 = 'Potens Cura, 30-10-2026, tweede ronde';
+const PC3 = 'Potens Cura, 01-11-2026';
 
-export const bijgewerkt = '2026-10-30';
+export const bijgewerkt = '2026-11-01';
 // true: concept, niet in Google. false: live. Zie LEESMIJ.md.
 export const concept = true;
 
@@ -24,9 +25,10 @@ export const organisatie = {
   email: { waarde: 'info@potenscura.nl', status: 'bevestigd', bron: BEVESTIGD } as Feit,
   adres: { waarde: 'Johan de Wittlaan 75, 6828 XD Arnhem', status: 'bevestigd', bron: `${BEVESTIGD}; postcode uit de BAG (PDOK), buurt Statenkwartier` } as Feit,
   adresOpenbaar: { waarde: null, status: 'te-bevestigen', bron: 'Mag het woonadres op de site en in Google, of alleen de plaats?' } as Feit<boolean>,
+  pandFoto: { waarde: true, status: 'bevestigd', bron: 'Potens Cura, 01-11-2026: akkoord van de eigenaar voor de foto van het pand' } as Feit<boolean>,
   kvk: { waarde: null, status: 'open', bron: '' } as Feit,
   contactpersoon: { waarde: null, status: 'open', bron: 'Naam, functie en foto voor Voor verwijzers.' } as Feit,
-  beveiligdeMail: { waarde: null, status: 'open', bron: 'Bijvoorbeeld Zivver of ZorgMail.' } as Feit,
+  beveiligdeMail: { waarde: null, status: 'open', bron: 'Welke dienst volgt (Potens Cura, 01-11-2026).' } as Feit,
   gestart: { waarde: null, status: 'open', bron: 'Draait de locatie al, of wanneer opent hij?' } as Feit,
 };
 
@@ -45,10 +47,10 @@ export const doelgroep = {
 
 export const dagbesteding = {
   zin: 'Een passende dagbesteding is nodig, zoals school of werk.',
-  kort: 'Passende dagbesteding, zoals school of werk',
+  kort: 'Een passende dagbesteding, zoals school of werk',
   status: 'bevestigd' as Status,
-  uitlegStatus: 'te-bevestigen' as Status,
-  bron: PC2,
+  uitlegStatus: 'bevestigd' as Status,
+  bron: `${PC2}; school of werk telt: ${PC3}`,
 };
 
 export const woonvorm: Feit = {
@@ -188,7 +190,7 @@ export const haltes = [
   {
     sleutel: 'eigen-benen', naam: 'Op eigen benen', foto: 'een verhuisdoos bij een nieuwe voordeur',
     wonen: 'Je verhuist naar een eigen woning.',
-    begeleiding: 'We helpen bij de overstap naar je eigen woning.',
+    begeleiding: 'We helpen bij de overstap.',
     jij: 'Zelfstandig wonen, met je eigen mensen om je heen.',
     ouders: 'Ze zien je op eigen benen staan.',
   },
@@ -203,7 +205,7 @@ export const werktijden = {
   bron: `${PC}: "Medewerkers werken vaak onregelmatig."`,
 };
 export const diensten = [
-  { sleutel: 'dag', naam: 'Dag', kop: 'Overdag', watJeDoet: 'Je begeleidt jongeren bij school, werk en afspraken, en je overlegt met ouders en verwijzers.' },
+  { sleutel: 'dag', naam: 'Dag', kop: 'Overdag', watJeDoet: 'Je begeleidt jongeren bij hun dagbesteding en afspraken, en je overlegt met ouders en verwijzers.' },
   { sleutel: 'avond', naam: 'Avond', kop: '\'s Avonds', watJeDoet: 'Je bent er voor een gesprek en je zorgt dat het rustig wordt in huis.' },
   { sleutel: 'nacht', naam: 'Nacht', kop: '\'s Nachts', watJeDoet: 'Je bent op de locatie als een jongere je \'s nachts nodig heeft.' },
   { sleutel: 'weekend', naam: 'Weekend', kop: 'In het weekend', watJeDoet: 'Vrije tijd, boodschappen en sport: het weekend heeft een eigen ritme.' },
@@ -214,12 +216,11 @@ export const aanmelden = {
     'Je belt of mailt Potens Cura.',
     'Stukken met persoonsgegevens stuur je via beveiligde mail.',
     'In een intakegesprek kijken we samen of Potens Cura bij de jongere past.',
-    'Past het, dan spreken we af wanneer de jongere komt wonen.',
+    'Past het, dan spreken we samen af wanneer de jongere komt wonen.',
   ],
   stappen: ['Bellen of mailen', 'Stukken sturen', 'Intakegesprek', 'Plaatsing'],
   routeStatus: 'bevestigd' as Status,
   beschikbaarheid: 'Bel voor de actuele stand.',
-  geenFormulier: 'Een aanmelding gaat niet via een webformulier, omdat gegevens over gezondheid en situatie van een jongere daar niet in horen.',
 };
 
 export interface Vraag {
@@ -242,12 +243,12 @@ export const vragen: Vraag[] = [
   { sleutel: 'perspectiefplan', lezer: 'ouder', vraag: 'Wat is een perspectiefplan?', feit: 'In het perspectiefplan staan de doelen van de jongere, opgesteld samen met de jongere en het netwerk.', uitleg: 'Op vaste momenten kijkt Potens Cura hoe het gaat met de doelen. Ouders en familie horen bij het netwerk van de jongere.', status: 'bevestigd' },
   { sleutel: 'doel', lezer: 'ouder', vraag: 'Wat is het doel van de begeleiding?', feit: 'Het doel van de begeleiding bij Potens Cura is dat jongeren zelfredzamer worden, meer eigen regie krijgen en uiteindelijk zelfstandig meedoen in de samenleving.', uitleg: 'De begeleiding is per jongere anders. Ze helpt jongeren om stap voor stap meer zelf te doen en zelf te beslissen, tot ze op eigen benen staan.', status: 'bevestigd' },
   { sleutel: 'familie', lezer: 'ouder', vraag: 'Wordt onze familie betrokken?', feit: 'Ja, Potens Cura werkt systeemgericht: ouders, familie en netwerk horen bij de begeleiding.', uitleg: 'Samen met je kind en het netwerk stellen we de doelen op voor het perspectiefplan. Op vaste momenten kijken we hoe het gaat.', status: 'bevestigd' },
-  { sleutel: 'cultuur', lezer: 'ouder', vraag: 'Houden jullie rekening met onze cultuur en ons geloof?', feit: 'Ja, Potens Cura werkt cultuursensitief: achtergrond, geloof en taal tellen mee in de begeleiding.', uitleg: 'Vertel in het intakegesprek wat voor jullie belangrijk is.', status: 'bevestigd' },
+  { sleutel: 'cultuur', lezer: 'ouder', vraag: 'Houden jullie rekening met onze cultuur en ons geloof?', feit: 'Ja, Potens Cura werkt cultuursensitief.', uitleg: 'Vertel in het intakegesprek wat voor jullie belangrijk is.', status: 'bevestigd' },
   { sleutel: 'skj', lezer: 'ouder', vraag: 'Wat betekent een registratie bij SKJ?', feit: 'Bij Potens Cura werken begeleiders die geregistreerd zijn bij SKJ, het Kwaliteitsregister Jeugd.', uitleg: 'Wie bij SKJ is geregistreerd, voldoet aan de eisen voor vakbekwaamheid en schoolt zich regelmatig bij. Het register is openbaar: je kunt het zelf nakijken op skjeugd.nl.', status: 'bevestigd' },
   { sleutel: 'contact-ouders', lezer: 'ouder', vraag: 'Hoe houd ik contact met de begeleiding?', feit: 'Te bevestigen door Potens Cura.', uitleg: 'Hoe het contact met ouders gaat, vertelt Potens Cura zelf.', status: 'open' },
-  { sleutel: 'aanmelden', lezer: 'verwijzer', vraag: 'Hoe meld ik een jongere aan?', feit: 'Je meldt een jongere aan door Potens Cura te bellen of te mailen.', uitleg: 'Stukken met persoonsgegevens stuur je via beveiligde mail. Een webformulier is er bewust niet, omdat gegevens over gezondheid en situatie daar niet in horen.', status: 'bevestigd' },
-  { sleutel: 'intake', lezer: 'verwijzer', vraag: 'Hoe gaat een plaatsing?', feit: 'Voor een plaatsing voert Potens Cura eerst een intakegesprek, om te kijken of het wonen en de begeleiding bij de jongere passen.', uitleg: 'Past het, dan spreken we af wanneer de jongere komt wonen.', status: 'bevestigd' },
-  { sleutel: 'plek', lezer: 'verwijzer', vraag: 'Is er plek?', feit: 'Bel Potens Cura voor de actuele stand van de plekken.', uitleg: 'Zo hoor je meteen of er plek is, en zo niet, wanneer wel.', status: 'bevestigd' },
+  { sleutel: 'aanmelden', lezer: 'verwijzer', vraag: 'Hoe meld ik een jongere aan?', feit: 'Je meldt een jongere aan door Potens Cura te bellen of te mailen.', uitleg: 'Stukken met persoonsgegevens stuur je via beveiligde mail. Daarna volgt een intakegesprek, om te kijken of Potens Cura bij de jongere past.', status: 'bevestigd' },
+  { sleutel: 'intake', lezer: 'verwijzer', vraag: 'Hoe gaat een plaatsing?', feit: 'Voor een plaatsing voert Potens Cura eerst een intakegesprek, om te kijken of het wonen en de begeleiding bij de jongere passen.', uitleg: 'Past het, dan spreken we samen af wanneer de jongere komt wonen.', status: 'bevestigd' },
+  { sleutel: 'plek', lezer: 'verwijzer', vraag: 'Is er plek?', feit: 'Bel Potens Cura voor de actuele stand van de plekken.', uitleg: `Het nummer is ${organisatie.telefoon.waarde}.`, status: 'bevestigd' },
   { sleutel: 'begeleiding', lezer: 'verwijzer', vraag: 'Welke begeleiding biedt Potens Cura?', feit: `Potens Cura biedt ${begeleiding.naam} bij kleinschalig wonen in vier studio's, voor ${doelgroep.tekst}.`, uitleg: `${begeleiding.zin} De begeleiders bouwen eerst een band op en werken met een perspectiefplan, samen met de jongere en het netwerk.`, status: 'bevestigd' },
   { sleutel: 'dagbesteding', lezer: 'verwijzer', vraag: 'Heeft een jongere een dagbesteding nodig?', feit: 'Ja, wie bij Potens Cura woont, heeft een passende dagbesteding nodig.', uitleg: 'Bijvoorbeeld school of werk.', status: 'bevestigd' },
   { sleutel: 'financiering', lezer: 'verwijzer', vraag: 'Wie betaalt de zorg?', feit: financiering.vergoed, uitleg: financiering.gemeente, status: 'bevestigd' },
@@ -267,11 +268,11 @@ export const lezers = {
 export const paginas = {
   home: { pad: '/', title: 'Kleinschalig wonen voor jongeren in Arnhem | Potens Cura', description: 'Een eigen studio met 24-uursbegeleiding, voor jongeren van 16 tot 23 jaar in Arnhem die niet thuis kunnen wonen. Bel ons om aan te melden of te solliciteren.', h1: 'Wonen met perspectief.' },
   wonen: { pad: '/wonen', title: 'Wonen in een eigen studio in Arnhem | Potens Cura', description: 'Zo woon je bij Potens Cura in Arnhem: een eigen studio met keuken, 24-uursbegeleiding, je familie en netwerk, en wie het betaalt. Voor jongeren van 16 tot 23.', h1: 'Wonen in je eigen studio in Arnhem' },
-  verwijzers: { pad: '/verwijzers', title: 'Een jongere aanmelden in Arnhem | Potens Cura', description: 'De aanmeldkaart voor verwijzers: voor wie, wat Potens Cura biedt, het intakegesprek voor de plaatsing en wie je belt. Jongeren van 16 tot 23 in Arnhem.', h1: 'Zo meld je een jongere aan' },
+  verwijzers: { pad: '/verwijzers', title: 'Een jongere aanmelden in Arnhem | Potens Cura', description: 'De aanmeldkaart voor verwijzers: voor wie, wat Potens Cura biedt, het intakegesprek voor de plaatsing en wie je belt. Jongeren van 16 tot 23 in Arnhem.', h1: 'Een jongere aanmelden in Arnhem' },
   werken: { pad: '/werken-bij', title: 'Werken als begeleider in Arnhem | Potens Cura', description: 'Begeleider worden bij Potens Cura in Arnhem: kleinschalig wonen voor jongeren van 16 tot 23, op wisselende tijden. Zie wat je doet en solliciteer direct.', h1: 'Begeleider worden in Arnhem' },
   over: { pad: '/over-ons', title: 'Over Potens Cura: kleinschalig wonen in Arnhem', description: 'Het doel, de missie en de visie van Potens Cura, hoe de begeleiders werken en wat SKJ en de klachtenregeling betekenen. Kleinschalig wonen in Arnhem.', h1: 'Over Potens Cura in Arnhem' },
   contact: { pad: '/contact', title: 'Contact met Potens Cura in Arnhem', description: 'Bel of mail Potens Cura in Arnhem voor een aanmelding, een vraag, een sollicitatie of een klacht.', h1: 'Bel of mail ons' },
   vragen: { pad: '/vragen', title: 'Vragen over wonen en begeleiding in Arnhem | Potens Cura', description: 'Antwoorden voor jongeren, ouders en verwijzers: voor wie Potens Cura is, hoe de begeleiding werkt, hoe aanmelden gaat en wie het betaalt.', h1: 'Vragen over wonen bij ons' },
-  privacy: { pad: '/privacy', title: 'Privacy | Potens Cura', description: 'Welke gegevens Potens Cura verwerkt via deze website en waarom.', h1: 'Privacy bij Potens Cura' },
-  klachten: { pad: '/klachten', title: 'Een klacht indienen | Potens Cura', description: 'Zo dien je een klacht in bij Potens Cura, gratis via Klachtenportaal Zorg, en zo vind je een onafhankelijke vertrouwenspersoon.', h1: 'Zo dien je een klacht in' },
+  privacy: { pad: '/privacy', title: 'Privacy | Potens Cura', description: 'Welke gegevens Potens Cura in Arnhem via deze website verwerkt, waarom, en welke rechten je hebt over je eigen gegevens.', h1: 'Privacy bij Potens Cura' },
+  klachten: { pad: '/klachten', title: 'Een klacht indienen | Potens Cura', description: 'Zo dien je een klacht in bij Potens Cura, gratis via Klachtenportaal Zorg, en zo vind je een onafhankelijke vertrouwenspersoon.', h1: 'Een klacht indienen' },
 };
