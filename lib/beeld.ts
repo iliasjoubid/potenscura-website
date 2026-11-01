@@ -95,5 +95,5 @@ export const CONTACT: Foto = {
 };
 
 export const PAND = {
-  alt: 'Sfeerbeeld ter illustratie van wonen en begeleiding; AI-gegenereerd, geen echte bewoner of locatie',
+  alt: 'Foto van de woonlocatie van Potens Cura',
 };
