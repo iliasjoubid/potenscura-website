@@ -12,7 +12,6 @@ export function Huis() {
         <div className="huis__raster">
           <figure className="huis__foto">
             <Pand sizes="(min-width: 1100px) 440px, (min-width: 600px) 50vw, calc(100vw - 40px)" vierkantOpTelefoon />
-            <figcaption>Sfeerbeeld ter illustratie; geen foto van de woonlocatie</figcaption>
           </figure>
           <div className="huis__vak huis__studio">
             <h2 id="huis-kop">Je eigen studio</h2>

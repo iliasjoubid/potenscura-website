@@ -31,7 +31,7 @@ export default function Wonen() {
         naast={
           <figure className="kader-pand">
             <PandVierkant sizes="(min-width: 1100px) 600px, (min-width: 600px) 70vw, calc(100vw - 40px)" voorrang />
-            <figcaption>Illustratie van een woonomgeving; geen foto van de locatie.</figcaption>
+
           </figure>
         }
       >
@@ -64,7 +64,7 @@ export default function Wonen() {
               jongere="Je familie en de mensen om je heen horen erbij. Samen met jou en met hen stellen we de doelen op voor je perspectiefplan. Wat voor jou belangrijk is, nemen we mee in de begeleiding."
               ouder="Als ouder hoor je bij het netwerk van je kind. Samen met je kind en dat netwerk stellen we de doelen op voor het perspectiefplan. We houden rekening met wat voor de jongere en het netwerk belangrijk is."
             />
-            <Link className="pijl-link" href="/#route">Stappen in de begeleiding <Pijl /></Link>
+            <Link className="pijl-link" href="/traject">Stappen in de begeleiding <Pijl /></Link>
           </div>
           <EenDag delen={dag} kop="Een dag" intro={`Er is ${begeleiding.naam}, zeven dagen per week. Kies een deel van de dag.`} naast fotos={DAGFOTOS} />
         </div></div>

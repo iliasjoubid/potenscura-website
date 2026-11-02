@@ -73,11 +73,6 @@ export const ROUTE: Foto = {
   alt: 'Sfeerbeeld ter illustratie van wonen en begeleiding; AI-gegenereerd, geen echte bewoner of locatie',
   tekst: 'Illustratief sfeerbeeld, geen foto van de woonlocatie.',
 };
-export const VRAGEN: Foto = {
-  naam: 'vragen', f: 0.65, maker: 'AI-illustratie voor Potens Cura', bron: '', ...AI_BEELD,
-  alt: 'Sfeerbeeld ter illustratie van wonen en begeleiding; AI-gegenereerd, geen echte bewoner of locatie',
-  tekst: 'Illustratief sfeerbeeld, geen foto van de woonlocatie.',
-};
 export const PRIVACY: Foto = {
   naam: 'privacy', f: 0.65, maker: 'AI-illustratie voor Potens Cura', bron: '', ...AI_BEELD,
   alt: 'Sfeerbeeld ter illustratie van wonen en begeleiding; AI-gegenereerd, geen echte bewoner of locatie',
@@ -95,5 +90,5 @@ export const CONTACT: Foto = {
 };
 
 export const PAND = {
-  alt: 'Sfeerbeeld ter illustratie van wonen en begeleiding; AI-gegenereerd, geen echte bewoner of locatie',
+  alt: 'Foto van de woonlocatie van Potens Cura',
 };
